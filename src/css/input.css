@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family:  "Poppins", sans-serif;
+}
+#checkmode:checked + label .switch-ball{
+    background-color: white;
+    transform: translateX(18px);
+    transition: transform 0.3s linear;
+  }
