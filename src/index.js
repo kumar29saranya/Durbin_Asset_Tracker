@@ -10,9 +10,6 @@ const checkbox = document.querySelector("#checkmode");
         { html.classList.remove("dark");
         }
       }
-
-    
-
       toggleDarkMode();
       checkbox.addEventListener("click",toggleDarkMode);
 
@@ -105,3 +102,63 @@ function hide_column(name)
 {
     document.getElementById(name).style.display="none";
 }
+var SelectText = new Array()
+SelectText[0] = "Last Week";
+SelectText[1] = "Last Month";
+SelectText[2] = "Last Year";
+SelectText[3] = "Cumulative";
+function getUsageHrs(txt){
+txtSelected = txt.selectedIndex;
+document.getElementById('usage_hrs').innerHTML = SelectText[txtSelected];
+}
+function getActualHrs(txt){
+  txtSelected = txt.selectedIndex;
+  document.getElementById('actual_hrs').innerHTML = SelectText[txtSelected];
+  }
+  var xyValues = [
+    {x:50, y:7},
+    {x:60, y:8},
+    {x:70, y:8},
+    {x:80, y:9},
+    {x:90, y:9},
+    {x:100, y:9},
+    {x:110, y:10},
+    {x:120, y:11},
+    {x:130, y:14},
+    {x:140, y:14},
+    {x:150, y:15}
+  ];
+  new Chart("myChart", {
+    type: "scatter",
+    data: {
+      datasets: [{
+        pointRadius: 4,
+        pointBackgroundColor: "rgb(0,0,255)",
+        data: xyValues,
+      }]
+    },
+    options: {
+      legend: {display: true},
+      scales: {
+        xAxes: [{ticks: {min: 40, max:160}}],
+        yAxes: [{ticks: {min: -1, max:1}}],
+      }
+    }
+  });
+
+  function initMap() {
+    // The location of Uluru
+    const uluru = { lat: -25.344, lng: 131.031 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: uluru,
+      map: map,
+    });
+  }
+  
+  window.initMap = initMap;
