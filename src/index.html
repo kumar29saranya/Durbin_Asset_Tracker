@@ -564,6 +564,8 @@
                     </div>
                   </div>
                   <!--Upper tabs ends-->
+
+                  <!--Table Begins-->
                   <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
                     <table class="table border-separate border-spacing-y-3  sm:mt-2 ">
                       <thead><!--Table Headers-->
@@ -785,32 +787,210 @@
                       </tbody>
                     </table>
                   </div>
+                  <!--Table Ends-->
                 </div>
                 <!--Assets Ends-->
 
+                <!--Maintenance Begins-->
                 <div class="hidden" id="tab-maintenance">
-                  <p>
-                    Maintenance
-                  </p>
+                  <!--Upper tabs-->
+                  <div class="flex">
+                    <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Maintenance</p>
+                    <div class=" sm:flex items-center ml-auto mt-0">
+                      <span class="mr-2 text-gray-500 text-xs dark:text-gray-500">Filter By:</span>
+                      <select type="text" class="input text-sm border-b-gray-400 text-gray-500 dark:text-gray-200 dark:bg-slate-800 rounded-lg cursor-pointer mr-2">
+                        <option value="scheduled_date">Scheduled Date</option>
+                        <option value="completion_date">Completion Date</option>
+                      </select>
+                      
+                      <div class=" input border mr-2 p-2 rounded-sm">
+                        <div  class="font-normal text-slate-500 text-sm dark:text-slate-300 dark:bg-slate-800"> 23-02-2023 - 23-02-2023 </div><!---->
+                      </div>
+                      <button class="button text-white bg-blue-800 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> + New Maintenance </button>
+                      <button class="flex button text-white bg-sky-700 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg> MIS Report 
+                      </button>
+                      <button class="flex button text-white bg-lime-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                          </svg> Excel Report 
+                      </button>
+                    </div>
+                  </div>
+                  <!--Upper tabs ends-->
+                  <div class="block align-middle justify-center text-center">
+                    <img class="basis-1 h-40 my-10 mx-auto block" src="images/not_available.svg" alt="">
+                    <p class="text-2xl text-slate-700 dark:text-slate-200 pb-5">No Data Available</p>
+                    <p class="text-slate-400 pb-10">Woops!! Looks like there is no 💣 data available, <br> Try by adding one 🍾, if not check you internet connection and try again.</p>
+                  </div>
+                  <div class="flex justify-center pb-10">
+                    <button class="flex button text-white bg-blue-800 py-3 px-3 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-refresh-ccw">
+                        <polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                      </svg> Reload 
+                    </button>
+                  </div>
                 </div>
+                <!--Maintenance Ends-->
+
+                <!--LEASE Begins-->
                 <div class="hidden" id="tab-lease">
-                    <p>
-                      Lease
-                    </p>
+                  <!--Upper tabs begins-->
+                  <div class="flex">
+                    <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Lease</p>
+                    <div class=" sm:flex items-center ml-auto mt-0">
+                      <span class="mr-2 text-gray-500 text-xs dark:text-gray-500">Filter By:</span>
+                      <select type="text" class="input text-sm border-b-gray-400 text-gray-500 dark:text-gray-200 dark:bg-slate-800 rounded-lg cursor-pointer mr-2">
+                        <option value="no_filter">No Filter</option>
+                        <option value="customer_po_no">Customer PO Number</option>
+                        <option value="customer">Customer</option>
+                        <option value="date">Date</option>
+                        <option value="status">Status</option>
+                      </select>
+                      <div class="relative flex ">
+                        <input
+                          type="search"
+                          class="relative m-0 block w-[1%] min-w-0 flex-auto border border-solid border-b-gray-400 rounded-lg bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                          placeholder="Search"
+                          aria-label="Search"
+                          aria-describedby="button-addon2" />
+                        <span
+                          class=" relative right-10 input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
+                          id="basic-addon2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            class="h-5 w-5">
+                            <path
+                              fill-rule="evenodd"
+                              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                              clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                      </div>
+                      <button class="button text-white bg-blue-800 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> + New Lease </button>
+                      <button class="flex button text-white bg-sky-700 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg> MIS Report 
+                      </button>
+                      <button class="flex button text-white bg-lime-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                          </svg> Excel Report 
+                      </button>
+                    </div>
+                  </div>
+                  <!--Upper tabs ends-->
+                  <div class="block align-middle justify-center text-center">
+                    <img class="basis-1 h-40 my-10 mx-auto block" src="images/not_available.svg" alt="">
+                    <p class="text-2xl text-slate-700 dark:text-slate-200 pb-5">No Data Available</p>
+                    <p class="text-slate-400 pb-10">Woops!! Looks like there is no 💣 data available, <br> Try by adding one 🍾, if not check you internet connection and try again.</p>
+                  </div>
+                  <div class="flex justify-center pb-10">
+                    <button class="flex button text-white bg-blue-800 py-3 px-3 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-refresh-ccw">
+                        <polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                      </svg> Reload 
+                    </button>
+                  </div>
                 </div>
+                <!--Lease Ends-->
+
                 <div class="hidden" id="tab-telematics">
                     <p>
                       Telematics
                     </p>
                 </div>
+
+                <!--Operator Begins-->
                 <div class="hidden" id="tab-operator">
-                    <p>
-                      Operator
-                    </p>
+                  <!--Upper tabs-->
+                  <div class="flex">
+                    <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Operators</p>
+                    <div class=" sm:flex items-center ml-auto mt-0">
+                      <button class="button text-white bg-blue-800 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> + New Maintenance </button>
+                      <button class="flex button text-white bg-sky-700 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg> MIS Report 
+                      </button>
+                      <button class="flex button text-white bg-lime-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                          </svg> Excel Report 
+                      </button>
+                    </div>
+                  </div>
+                  <!--Upper tabs ends-->
+
+                  <!--Table Begins-->
+                  <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                    <table class="table border-separate border-spacing-y-3  sm:mt-2 ">
+                      <thead><!--Table Headers-->
+                        <tr class="text-sm  text-slate-600">
+                          <th class="w-40 whitespace-no-wrap font-medium">Name</th>
+                          <th class="w-32 text-center whitespace-no-wrap px-5 py-1 font-medium ">PIN</th>
+                          <th class="w-56 text-center whitespace-no-wrap px-5 py-1 font-medium">ASSET</th>
+                          <th class="w-52 text-center whitespace-no-wrap px-5 py-1 font-medium">TODAY'S ATTENDANCE</th>
+                          <th class="w-52 text-center whitespace-no-wrap px-5 py-1 font-medium">NO OF DAYS PRESENT</th>
+                          <th class="w-52 text-center whitespace-no-wrap px-5 py-1 font-medium">NO OF DAYS ABSENT</th>
+                          <th class="w-72 text-center whitespace-no-wrap px-5 py-1 font-medium">ACTION</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!--Table Row  1-->
+                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                          <td class="text-center py-3 rounded-l-lg ">
+                            <a href="" class="font-medium whitespace-no-wrap">Shikandar</a>
+                          </td>
+                          <td class="text-center"> 1234 </td>
+                          <td class="text-center"> GENIE GS4047 </td>
+                          
+                          <td class="">
+                            <div class="flex items-center justify-center text-theme-9 text-red-600 dark:text-white"> Absent </div>
+                          </td>
+                          <td class="text-center"> 15 </td>
+                          <td class="text-center"> 367 </td>
+                          <td class="table-report__action w-56 rounded-r-lg">
+                            <div class="flex justify-center items-center">
+                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg> Update 
+                              </div>
+                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                  <polyline points="3 6 5 6 21 6"></polyline>
+                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg> Delete 
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!--Table Ends-->
                 </div>
+                <!--Operator Ends-->
+
                 <div class="hidden" id="tab-settings">
                     <p>
-                      Operator
+                      Settings
                     </p>
                 </div>
               </div>
