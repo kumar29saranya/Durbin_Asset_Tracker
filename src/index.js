@@ -162,3 +162,44 @@ function getActualHrs(txt){
   }
   
   window.initMap = initMap;
+
+  function changeActiveTeleTab(event, tabID)
+      {
+        element=event.target;
+        tabSelected=document.getElementsByClassName("tele-tab");
+        sectionDiv=document.getElementsByClassName("teleDiv");
+        
+        for(let i = 0 ; i < tabSelected.length; i++)
+      {
+        tabSelected[i].classList.remove("active");
+        sectionDiv[i].classList.remove("block");
+        sectionDiv[i].classList.add("hidden");
+        
+                
+      }
+      
+      
+      element.classList.add("active");
+      document.getElementById(tabID).classList.remove("hidden");
+      document.getElementById(tabID).classList.add("block");
+      
+      }
+  function changeActiveDevEventsTab(event, tabID)
+  {
+        element=event.target;
+        tabSelected=document.getElementsByClassName("dev-event");
+        sectionDisp=document.getElementsByClassName("devEvents");
+        for(let i = 0 ; i < tabSelected.length; i++)
+      {
+        tabSelected[i].classList.remove("active");
+        sectionDisp[i].classList.remove("block");
+        sectionDisp[i].classList.add("hidden");
+                  
+      }
+      
+      
+      element.classList.add("active");
+      document.getElementById(tabID).classList.remove("hidden");
+      document.getElementById(tabID).classList.add("block");
+  }
+ 

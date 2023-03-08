@@ -906,11 +906,111 @@
                 </div>
                 <!--Lease Ends-->
 
+                <!--Telematics Begins-->
                 <div class="hidden" id="tab-telematics">
-                    <p>
-                      Telematics
-                    </p>
+                  
+                  <!--Upper Nav-->
+                  <div class="flex justify-between">
+                    <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Device Events</p>
+                    <div class=" hidden sm:flex items-center ml-auto mt-0"><!----><!---->
+                      <div class="intro-y pr-1">
+                        <div class="chat box sm:w-full w-44">
+                          <div class="text-sm nav-tabs justify-center flex bg-white dark:bg-slate-600 rounded-md">
+                            <span onclick="changeActiveTeleTab(event,'device-events');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate active">Device events</span>
+                            <span onclick="changeActiveTeleTab(event,'tagInOut');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Tag In/Out</span>
+                            <span onclick="changeActiveTeleTab(event,'usage-actual');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Usage Vs Actual</span>
+                            <span onclick="changeActiveTeleTab(event, 'gps-tracker');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">GPS tracker</span>
+                            <span onclick="changeActiveTeleTab(event, 'geo-tagging');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Geo-tagging</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Upper Nav Ends-->
+
+                  <!--Device Events Begins-->
+                  <div id="device-events" class="teleDiv flex h-auto">
+                    <div class="basis-3/12 rounded-lg bg-white dark:bg-slate-700 my-5 py-5 h-fit">
+                        <div onclick="changeActiveDevEventsTab(event, 'listOfAssets')" class="dev-event mx-3 pl-5 py-1 active rounded-md">List of Assets</div>
+                        <div onclick="changeActiveDevEventsTab(event, 'incidentLogs')" class="dev-event mx-3 pl-5 py-1  rounded-md">Incident Logs</div>
+                    </div>
+                    <div id="listOfAssets" class="devEvents basis-9/12 rounded-lg bg-white dark:bg-slate-700 my-5 ml-5 py-5">
+                      <table class="table table-report sm:mt-2 h-40">
+                        <thead>
+                          <tr class="font-thin">
+                            <th class="w-48 text-center whitespace-no-wrap font-medium">ASSET</th>
+                            <th class="w-48 text-center whitespace-no-wrap font-medium">TAG ID</th>
+                            <th class="w-48 text-center whitespace-no-wrap font-medium">TEMPARATURE</th>
+                            <th class="w-48 text-center whitespace-no-wrap font-medium">STATUS</th>
+                            <th class="w-48 text-center whitespace-no-wrap font-medium">LAST UPDATED</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div id="incidentLogs" class="devEvents hidden basis-9/12 rounded-lg bg-white dark:bg-slate-700 my-5 ml-5 py-5">
+                      <table class="table table-report sm:mt-2 h-40">
+                        <thead>
+                          <tr class="font-thin">
+                            <th class="w-80 text-center whitespace-no-wrap font-medium">TAG ID</th>
+                            <th class="w-80 text-center whitespace-no-wrap font-medium">EVENT</th>
+                            <th class="w-80 text-center whitespace-no-wrap font-medium">TIME</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!--Device Events Ends-->
+
+                  <!--Tag IN/OUT-->
+                  <div id="tagInOut" class="teleDiv hidden ">
+                    <table class="table table-report sm:mt-2 h-72">
+                      <thead>
+                        <tr>
+                          <th class="w-56 font-normal text-center whitespace-no-wrap">DEVICE ID</th>
+                          <th class="w-56 font-normal text-center whitespace-no-wrap">DEVICE NAME</th>
+                          <th class="w-56 font-normal text-center whitespace-no-wrap">OPERATOR NAME</th>
+                          <th class="w-60 font-normal text-center whitespace-no-wrap">TAG IN TIME</th>
+                          <th class="w-60 font-normal text-center whitespace-no-wrap">TAG OUT TIME</th>
+                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL USAGE HOURS</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+
+                  <!--Usage vs Actual-->
+                  <div id="usage-actual" class="teleDiv hidden">
+                    <table class="table table-report sm:mt-2 h-72">
+                      <thead>
+                        <tr>
+                          <th class="w-56 font-normal text-center whitespace-no-wrap">ASSET</th>
+                          <th class="w-56 font-normal text-center whitespace-no-wrap">ASSET NO</th>
+                          <th class="w-56 font-normal text-center whitespace-no-wrap">STATUS</th>
+                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL USAGE HOURS</th>
+                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL ACTIVE HOURS</th>
+                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL OVERTIME</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+
+                  <!--GPS Tracker-->
+                  <div id="gps-tracker" class="teleDiv hidden">
+                    <p>GPS TRACKER</p>
+                  </div>
+
+                  <!--Geo Tagging-->
+                  <div id="geo-tagging" class="teleDiv hidden">
+                    <p>GEO TAGGING</p>
+                  </div>
+
                 </div>
+                <!--Telematics Ends-->
 
                 <!--Operator Begins-->
                 <div class="hidden" id="tab-operator">
@@ -940,7 +1040,7 @@
                   <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
                     <table class="table border-separate border-spacing-y-3  sm:mt-2 ">
                       <thead><!--Table Headers-->
-                        <tr class="text-sm  text-slate-600">
+                        <tr class="text-sm  text-slate-600 dark:text-white">
                           <th class="w-40 whitespace-no-wrap font-medium">Name</th>
                           <th class="w-32 text-center whitespace-no-wrap px-5 py-1 font-medium ">PIN</th>
                           <th class="w-56 text-center whitespace-no-wrap px-5 py-1 font-medium">ASSET</th>
@@ -952,7 +1052,7 @@
                       </thead>
                       <tbody>
                         <!--Table Row  1-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600  dark:text-slate-200">
                           <td class="text-center py-3 rounded-l-lg ">
                             <a href="" class="font-medium whitespace-no-wrap">Shikandar</a>
                           </td>
