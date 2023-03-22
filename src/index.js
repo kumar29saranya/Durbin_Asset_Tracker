@@ -57,8 +57,8 @@ function changeActiveTab(event,tabID)
       }
       ulElement = element.parentNode.parentNode;
       aElements = ulElement.querySelectorAll("li > a");
+      tabDisp=document.getElementsByClassName('tabList')
       
-      tabContents = document.getElementById("tabs-id").querySelectorAll(".tab-content > div");
       for(let i = 0 ; i < aElements.length; i++)
       {
           aElements[i].classList.remove("text-white");
@@ -69,8 +69,8 @@ function changeActiveTab(event,tabID)
           aElements[i].classList.add("text-sm");
           
         
-          tabContents[i].classList.add("hidden");
-          tabContents[i].classList.remove("block");
+          tabDisp[i].classList.add("hidden");
+          tabDisp[i].classList.remove("block");
       }
       
       element.classList.remove("text-slate-200");
@@ -115,46 +115,105 @@ function getActualHrs(txt){
   txtSelected = txt.selectedIndex;
   document.getElementById('actual_hrs').innerHTML = SelectText[txtSelected];
   }
-  var xyValues = [
-    {x:50, y:7},
-    {x:60, y:8},
-    {x:70, y:8},
-    {x:80, y:9},
-    {x:90, y:9},
-    {x:100, y:9},
-    {x:110, y:10},
-    {x:120, y:11},
-    {x:130, y:14},
-    {x:140, y:14},
-    {x:150, y:15}
-  ];
-  new Chart("myChart", {
-    type: "scatter",
+  const data = {
+    datasets: [{
+      label: 'Scatter Dataset',
+      data: [{
+        x: 3,
+        y: 2
+      }, {
+        x: 0,
+        y: 10
+      }, {
+        x: 10,
+        y: 5
+      },  {
+        x: 6,
+        y: 0
+      },{
+        x: 0.5,
+        y: 5.5
+      }],
+      backgroundColor: 'rgb(255, 99, 132)'
+    }],
+  };
+  const config = {
+    type: 'scatter',
+    data: data,
+    options: {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom'
+        }
+      }
+    }
+  };
+  new Chart("myChart", config);
+
+  /*function newDate(days) {
+    return moment().add(days, 'd');
+  }
+  
+  var config = {
+    type: 'line',
     data: {
+      labels: [newDate(-4), newDate(-3), newDate(2), newDate(3), newDate(4)],
       datasets: [{
-        pointRadius: 4,
-        pointBackgroundColor: "rgb(0,0,255)",
-        data: xyValues,
+        label: "My First dataset",
+        data: [1, 3, 4, 2, 1],
       }]
     },
     options: {
-      legend: {display: true},
       scales: {
-        xAxes: [{ticks: {min: 40, max:160}}],
-        yAxes: [{ticks: {min: -1, max:1}}],
+        xAxes: [{
+          type: 'time',
+          time: {
+            displayFormats: {
+              
+              'day': 'DD MM YYYY',
+              
+            }
+          }
+        }],
+      },
+    }
+  };
+  
+  var ctx = document.getElementById("myChart").getContext("2d");
+  new Chart(ctx, config);*/
+ 
+  
+  /*const config = {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        data: [{x: '2016-12-25', y: 20}, {x: '2016-12-26', y: 10}]
+      }]
+    },
+    options: {
+      scales: {
+          xAxes: {
+              type: 'time',
+              time: {
+                  unit: 'day'
+              }
+          }
       }
     }
-  });
+  };
+  new Chart("myChart", config);*/
+
 
   function initMap() {
-    // The location of Uluru
+    
     const uluru = { lat: -25.344, lng: 131.031 };
-    // The map, centered at Uluru
+    
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
       center: uluru,
     });
-    // The marker, positioned at Uluru
+    
     const marker = new google.maps.Marker({
       position: uluru,
       map: map,
@@ -163,8 +222,9 @@ function getActualHrs(txt){
   
   window.initMap = initMap;
 
-  function changeActiveTeleTab(event, tabID)
-      {
+  function changeActiveTeleTab(event, tabID,tabName)
+  {
+        document.getElementById('tele-heading').innerHTML=tabName;
         element=event.target;
         tabSelected=document.getElementsByClassName("tele-tab");
         sectionDiv=document.getElementsByClassName("teleDiv");
@@ -173,17 +233,24 @@ function getActualHrs(txt){
       {
         tabSelected[i].classList.remove("active");
         sectionDiv[i].classList.remove("block");
-        sectionDiv[i].classList.add("hidden");
-        
-                
+        sectionDiv[i].classList.add("hidden");        
       }
-      
-      
       element.classList.add("active");
       document.getElementById(tabID).classList.remove("hidden");
       document.getElementById(tabID).classList.add("block");
       
+      if(tabID=='gps-tracker')
+      {
+          document.getElementById('gps-buttons').classList.remove("hidden");
+          document.getElementById('gps-buttons').classList.add("block");
+
       }
+      else
+      {
+        document.getElementById('gps-buttons').classList.remove("block");
+        document.getElementById('gps-buttons').classList.add("hidden");
+      }
+  }
   function changeActiveDevEventsTab(event, tabID)
   {
         element=event.target;
@@ -196,10 +263,56 @@ function getActualHrs(txt){
         sectionDisp[i].classList.add("hidden");
                   
       }
-      
-      
       element.classList.add("active");
       document.getElementById(tabID).classList.remove("hidden");
       document.getElementById(tabID).classList.add("block");
   }
  
+  function showDiv(newID, oldID)
+  {
+    document.getElementById(oldID).classList.remove("block");
+    document.getElementById(oldID).classList.add("hidden");
+    document.getElementById(newID).classList.remove("hidden");
+    document.getElementById(newID).classList.add("block");
+  }
+
+  let modal = document.getElementById("my-modal");
+
+   function openModal(nm) {
+    modal.style.display = "block";
+    document.getElementById(nm).style.display="block";
+    }
+    
+    function closeModal(nm) {
+    modal.style.display = "none";
+    document.getElementById(nm).style.display="none"
+    }
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+    }
+
+    function commDetails(){
+      var checkBox = document.getElementById("showComm");
+      
+      var content = document.getElementsByClassName("showOnComm");
+      
+      if (checkBox.checked == true){
+        for(let i = 0 ; i < content.length; i++)
+          {
+            
+            content[i].classList.remove("hidden");
+                     
+          }
+      } 
+      else {
+        for(let i = 0 ; i < content.length; i++)
+          {
+            
+            content[i].classList.add("hidden");
+                      
+          }
+      }
+    }

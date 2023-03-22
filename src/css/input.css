@@ -92,3 +92,12 @@ body{
     background-color: #1e40af;
     color: white;
 }
+
+.comToggle-checkbox:checked {
+    right: 0;
+    border-color: #1e40af;
+    
+  }
+  .comToggle-checkbox:checked + .comToggle-label {
+    background-color: #d1d5db;
+  }

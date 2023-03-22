@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin="">
   </head>
 <body id="main-body" class="bg-blue-800 px-8 pt-7 dark:bg-gray-900 dark:text-gray-200" ">
   
@@ -167,7 +170,7 @@
         <div class="w-full">
           <ul class="flex mb-0 mx-10 list-none flex-wrap pt-12  flex-row">
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a id="nav-tab" class="cursor-pointer text-base underline underline-offset-8 font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-white hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-dashboard');  change_text('Dashboard') ">
+              <a href="#tab-dashboard" id="nav-tab" class="cursor-pointer text-base underline underline-offset-8 font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-white hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-dashboard');  change_text('Dashboard') ">
                 <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -177,7 +180,7 @@
             </li>
             
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a id="nav-tab" class="cursor-pointer text-sm font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100  hover:bg-blue-900 dark:hover:bg-slate-900 " onclick="changeActiveTab(event,'tab-assets');  change_text('Assets');">
+              <a href="#tab-assets" id="nav-tab" class="cursor-pointer text-sm font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100  hover:bg-blue-900 dark:hover:bg-slate-900 " onclick="changeActiveTab(event,'tab-assets');  change_text('Assets');">
                 <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase">
                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
@@ -185,7 +188,7 @@
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a id="nav-tab" class="cursor-pointer text-sm font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-maintenance');  change_text('Maintenance')">
+              <a href="#tab-maintenance" id="nav-tab" class="cursor-pointer text-sm font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-maintenance');  change_text('Maintenance')">
                 <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag">
                     <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
                     <line x1="4" y1="22" x2="4" y2="15"></line>
@@ -193,7 +196,7 @@
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                <a id="nav-tab" class="cursor-pointer text-sm font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900 " onclick="changeActiveTab(event,'tab-lease');  change_text('Lease')">
+                <a href="#tab-lease" id="nav-tab" class="cursor-pointer text-sm font-medium   px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900 " onclick="changeActiveTab(event,'tab-lease');  change_text('Lease')">
                     <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                         <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -203,21 +206,21 @@
                 </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                <a class="cursor-pointer text-sm font-medium  px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900 " onclick="changeActiveTab(event,'tab-telematics');  change_text('Telematics')">
+                <a href="#tab-telematics" class="cursor-pointer text-sm font-medium  px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900 " onclick="changeActiveTab(event,'tab-telematics');  change_text('Telematics')">
                     <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
                       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                     </svg>  Telematics
                 </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                <a class="cursor-pointer text-sm font-medium  px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-operator');  change_text('Operator')">
+                <a href="#tab-operator" class="cursor-pointer text-sm font-medium  px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-operator');  change_text('Operator')">
                     <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool">
                       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                     </svg>  Operator
                 </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                <a class="cursor-pointer text-sm font-medium  px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-settings');  change_text('Settings')">
+                <a href="#tab-settings" class="cursor-pointer text-sm font-medium  px-5 py-3  rounded-t-2xl block leading-normal text-slate-200 hover:transition-all hover:delay-100 hover:bg-blue-900 dark:hover:bg-slate-900" onclick="changeActiveTab(event,'tab-settings');  change_text('Settings')">
                     <svg id="asseticon" class="asset-icon inline stroke-blue-500" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings">
                       <circle cx="12" cy="12" r="3"></circle>
                       <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -230,7 +233,7 @@
             <div class="px-5 py-5 flex-auto">
               <div class="tab-content tab-space">
                 <!--Dashboard Begins-->
-                <div class="block" id="tab-dashboard">
+                <div class="tabList block" id="tab-dashboard">
                   <div class="flex justify-between">
                     <p class="inline py-5 pl-5 text-lg font-medium text-slate-700 dark:text-slate-200">General Report</p>
                     <span class="ml-auto mt-5 inline text-theme-1 dark:text-theme-10 cursor-pointer ">
@@ -500,299 +503,792 @@
                           <a href=""><div class="font-base text-slate-500 text-center"> View More </div></a>
                       </div>  
                     </div>
-                  </div> 
-
-                  
-                  
+                  </div>    
                 </div>
                 <!--End  of Dashboard-->
 
                 <!--Assets Begins-->
-                <div class="hidden" id="tab-assets">
-
-                  <!--Upper tabs-->
-                  <div class="flex">
-                    <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Assets</p>
-                    <div class=" sm:flex items-center ml-auto mt-0">
-                      <span class="mr-2 text-gray-500 text-xs dark:text-gray-500">Filter By:</span>
-                      <select type="text" class="input text-sm border-b-gray-400 text-gray-500 dark:text-gray-200 dark:bg-slate-800 rounded-lg cursor-pointer mr-2">
-                        <option value="nofilter">No Filter</option>
-                        <option value="brand">Brand</option>
-                        <option value="category">Category</option>
-                        <option value="yom">YOM</option>
-                      </select>
-                      <div class="relative flex ">
-                        <input
-                          type="search"
-                          class="relative m-0 block w-[1%] min-w-0 flex-auto border border-solid border-b-gray-400 rounded-lg bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
-                          placeholder="Search"
-                          aria-label="Search"
-                          aria-describedby="button-addon2" />
-                        <span
-                          class=" relative right-10 input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
-                          id="basic-addon2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            class="h-5 w-5">
-                            <path
-                              fill-rule="evenodd"
-                              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                              clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </div>
-                      <div class=" input border mr-2 p-2 rounded-sm">
-                        <div  class="font-normal text-slate-500 text-sm dark:text-slate-300 dark:bg-slate-800"> 23-02-2023 - 23-02-2023 </div><!---->
-                      </div>
-                      <button class="button text-white bg-blue-800 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> + New Asset </button>
-                      <button class="button text-white bg-orange-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> History </button>
-                      <button class="flex button text-white bg-sky-700 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                          <polyline points="7 10 12 15 17 10"></polyline>
-                          <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg> MIS Report 
-                      </button>
-                        <button class="flex button text-white bg-lime-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                <div class="tabList hidden" id="tab-assets"><tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                  
+                  <div id="main-assets" class="block">
+                    <div  class="flex ">
+                      <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Assets</p>
+                      <div class=" sm:flex items-center ml-auto mt-0">
+                        <span class="mr-2 text-gray-500 text-xs dark:text-gray-500">Filter By:</span>
+                        <select type="text" class="input text-sm border-b-gray-400 text-gray-500 dark:text-gray-200 dark:bg-slate-800 rounded-lg cursor-pointer mr-2">
+                          <option value="nofilter">No Filter</option>
+                          <option value="brand">Brand</option>
+                          <option value="category">Category</option>
+                          <option value="yom">YOM</option>
+                        </select>
+                        <div class="relative flex ">
+                          <input
+                            type="search"
+                            class="relative m-0 block w-[1%] min-w-0 flex-auto border border-solid border-b-gray-400 rounded-lg bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                            placeholder="Search"
+                            aria-label="Search"
+                            aria-describedby="button-addon2" />
+                          <span
+                            class=" relative right-10 input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
+                            id="basic-addon2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              class="h-5 w-5">
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                clip-rule="evenodd" />
+                            </svg>
+                          </span>
+                        </div>
+                        <div class=" input border mr-2 p-2 rounded-sm">
+                          <div  class="font-normal text-slate-500 text-sm dark:text-slate-300 dark:bg-slate-800"> 23-02-2023 - 23-02-2023 </div><!---->
+                        </div>
+                        <button onclick="showDiv('new-asset', 'main-assets');" class="button text-white bg-blue-800 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> + New Asset </button>
+                        <button onclick="showDiv('asset-history', 'main-assets');" class="button text-white bg-orange-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer"> History </button>
+                        <button class="flex button text-white bg-sky-700 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline>
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
-                          </svg> Excel Report 
+                          </svg> MIS Report 
                         </button>
+                          <button class="flex button text-white bg-lime-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-download">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline>
+                              <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg> Excel Report 
+                          </button>
+                      </div>
+                    </div>
+                    <!--Upper tabs ends-->
+  
+                    <!--Table Begins-->
+                    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                      <table class="table border-separate border-spacing-y-3  sm:mt-2 w-full ">
+                        <thead><!--Table Headers-->
+                          <tr class="text-base">
+                            <th class="w-52 whitespace-no-wrap  font-medium">BRAND &amp; MODEL</th>
+                            <th class="w-40 text-center whitespace-no-wrap px-5 py-3 font-medium">ASSET NO</th>
+                            <th class="w-60 text-center whitespace-no-wrap px-5 py-3 font-medium">SERIAL NO</th>
+                            <th class="w-56 text-center whitespace-no-wrap px-5 py-3 font-medium">CATEGORY</th>
+                            <th class="w-40 text-center whitespace-no-wrap px-5 py-3 font-medium">YOM</th>
+                            <th class="w-40 text-center whitespace-no-wrap px-5 py-3 font-medium">CREATED ON</th>
+                            <th class="w-72 text-center whitespace-no-wrap px-5 py-3 font-medium">ACTION</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!--Table Row  1-->
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class="text-center py-3 rounded-l-lg ">
+                              <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
+                              <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
+                            </td>
+                            <td class="text-center"> MAU020 </td>
+                            <td class="text-center"> Z452508A-38564 </td>
+                            <td class="text-center"> ARTICULATING BOOM LIFT </td>
+                            <td class="">
+                              <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
+                            </td>
+                            <td class="">
+                              <div class="flex items-center justify-center">
+                                <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
+                              </div>
+                            </td>
+                            <td class="table-report__action w-56 rounded-r-lg">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                  </svg> Update 
+                                </div>
+                                <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                  <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                  </svg> Delete 
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <!--Table Row  2-->
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class="text-center py-3 rounded-l-lg ">
+                              <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
+                              <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
+                            </td>
+                            <td class="text-center"> MAU020 </td>
+                            <td class="text-center"> Z452508A-38564 </td>
+                            <td class="text-center"> ARTICULATING BOOM LIFT </td>
+                            <td class="">
+                              <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
+                            </td>
+                            <td class="">
+                              <div class="flex items-center justify-center">
+                                <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
+                              </div>
+                            </td>
+                            <td class="table-report__action w-56 rounded-r-lg">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                  </svg> Update 
+                                </div>
+                                <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                  <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                  </svg> Delete 
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <!--Table Row  3-->
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class="text-center py-3 rounded-l-lg ">
+                              <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
+                              <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
+                            </td>
+                            <td class="text-center"> MAU020 </td>
+                            <td class="text-center"> Z452508A-38564 </td>
+                            <td class="text-center"> ARTICULATING BOOM LIFT </td>
+                            <td class="">
+                              <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
+                            </td>
+                            <td class="">
+                              <div class="flex items-center justify-center">
+                                <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
+                              </div>
+                            </td>
+                            <td class="table-report__action w-56 rounded-r-lg">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                  </svg> Update 
+                                </div>
+                                <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                  <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                  </svg> Delete 
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <!--Table Row  4-->
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class="text-center py-3 rounded-l-lg ">
+                              <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
+                              <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
+                            </td>
+                            <td class="text-center"> MAU020 </td>
+                            <td class="text-center"> Z452508A-38564 </td>
+                            <td class="text-center"> ARTICULATING BOOM LIFT </td>
+                            <td class="">
+                              <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
+                            </td>
+                            <td class="">
+                              <div class="flex items-center justify-center">
+                                <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
+                              </div>
+                            </td>
+                            <td class="table-report__action w-56 rounded-r-lg">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                  </svg> Update 
+                                </div>
+                                <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                  <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                  </svg> Delete 
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <!--Table Row  5-->
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class="text-center py-3 rounded-l-lg ">
+                              <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
+                              <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
+                            </td>
+                            <td class="text-center"> MAU020 </td>
+                            <td class="text-center"> Z452508A-38564 </td>
+                            <td class="text-center"> ARTICULATING BOOM LIFT </td>
+                            <td class="">
+                              <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
+                            </td>
+                            <td class="">
+                              <div class="flex items-center justify-center">
+                                <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
+                              </div>
+                            </td>
+                            <td class="table-report__action w-56 rounded-r-lg">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                  </svg> Update 
+                                </div>
+                                <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                  <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                  </svg> Delete 
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <!--Table Row  6-->
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class="text-center py-3 rounded-l-lg ">
+                              <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
+                              <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
+                            </td>
+                            <td class="text-center"> MAU020 </td>
+                            <td class="text-center"> Z452508A-38564 </td>
+                            <td class="text-center"> ARTICULATING BOOM LIFT </td>
+                            <td class="">
+                              <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
+                            </td>
+                            <td class="">
+                              <div class="flex items-center justify-center">
+                                <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
+                              </div>
+                            </td>
+                            <td class="table-report__action w-56 rounded-r-lg">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                  </svg> Update 
+                                </div>
+                                <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
+                                  <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                  </svg> Delete 
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  <!--Upper tabs ends-->
+                  
+                  <div id="new-asset" class="hidden">
+                    <div class="flex ">
+                      <button onclick="showDiv('main-assets','new-asset');" href="">
+                        <svg  xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-6 cursor-pointer feather feather-arrow-left">
+                        <line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                      </button>
+                      <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">New Asset</p>
+                    </div>
+                    <div class="flex">
+                      <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class="font-medium text-base mr-auto">Basic Feilds</h2>
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="flex flex-col">
+                            <div class="w-full">
+                              <label class="">Asset No*</label>
+                              <input type="text" placeholder="Asset No" class="input w-full border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm mt-2">
+                            </div>
+                            <div class="w-full mt-2">
+                              <label class="">Make*</label><input type="text" placeholder="Make" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm">
+                            </div>
+                            <div class="w-full mt-2">
+                              <label class="">Model*</label><input type="text" placeholder="Model" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
 
-                  <!--Table Begins-->
-                  <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-                    <table class="table border-separate border-spacing-y-3  sm:mt-2 ">
-                      <thead><!--Table Headers-->
-                        <tr class="text-base">
-                          <th class="w-52 whitespace-no-wrap  font-medium">BRAND &amp; MODEL</th>
-                          <th class="w-40 text-center whitespace-no-wrap px-5 py-3 font-medium">ASSET NO</th>
-                          <th class="w-60 text-center whitespace-no-wrap px-5 py-3 font-medium">SERIAL NO</th>
-                          <th class="w-56 text-center whitespace-no-wrap px-5 py-3 font-medium">CATEGORY</th>
-                          <th class="w-40 text-center whitespace-no-wrap px-5 py-3 font-medium">YOM</th>
-                          <th class="w-40 text-center whitespace-no-wrap px-5 py-3 font-medium">CREATED ON</th>
-                          <th class="w-72 text-center whitespace-no-wrap px-5 py-3 font-medium">ACTION</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!--Table Row  1-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
-                          <td class="text-center py-3 rounded-l-lg ">
-                            <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
-                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
-                          </td>
-                          <td class="text-center"> MAU020 </td>
-                          <td class="text-center"> Z452508A-38564 </td>
-                          <td class="text-center"> ARTICULATING BOOM LIFT </td>
-                          <td class="">
-                            <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
-                          </td>
-                          <td class="">
-                            <div class="flex items-center justify-center">
-                              <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
                             </div>
-                          </td>
-                          <td class="table-report__action w-56 rounded-r-lg">
-                            <div class="flex justify-center items-center">
-                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
-                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg> Update 
+                            <div class="w-full mt-3">
+                              <label class="">Description</label>
+                              <textarea rows="2" placeholder="Say something that best describes the asset" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm"></textarea>
+                            </div><!---->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class="font-medium text-base mr-auto">Asset Details</h2>
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="flex flex-col">
+                            <div class="w-full">
+                              <label class="">Seria No*</label>
+                              <input type="text" placeholder="Serial No" class="input w-full border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm mt-2">
+                            </div>
+                            <div class="w-full mt-2">
+                              <label class="">Purchased from*</label><input type="text" placeholder="Purchased From" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                            </div>
+                            <div class="w-full mt-2">
+                              <label class="">RFID*</label><input type="text" placeholder="RFID" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm">
+
+                            </div>
+                            <div class="w-full mt-3">
+                              <label class="">Device Hash</label>
+                              <input type="text" placeholder="Device Hash" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm">
+
+                            </div><!---->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class=" font-medium text-transparent text-base mr-auto">Others</h2>
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="flex flex-col">
+                            <div class="w-full">
+                              <label class="">YOM*</label>
+                              <input type="text" placeholder="YOM" class="input w-full border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm mt-2">
+                            </div>
+                            <div class="w-full mt-2 justify-between">
+                              <div class="flex justify-between">
+                                <label class="">Site*</label>
+                                <button id="open-btn" onclick="openModal('newSite_modal');"
+                                  class="block bg-blue-800 text-white text-xs rounded px-2 py-1 cursor-pointer" type="button">
+                                  +New
+                                </button>
                               </div>
-                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
-                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
-                                  <polyline points="3 6 5 6 21 6"></polyline>
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg> Delete 
+                              <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm"><option value="fd5c6914-1993-4fc6-84c8-94f0e122d6d3"> Poonamalle </option><option value="40b8524c-db63-48be-ac25-73bfae5406da"> Rajiv Gandhi  Airport (L&amp;T Gate) </option><option value="8a297566-93d8-46b6-ba03-1a2b3a7ea20f"> Amazon Circle (GMR) </option><option value="f2dcb6d3-b078-444a-82d1-d5fd28ae60e4"> Rajiv Gandhi International Airport (Basement) </option></select>
+                            </div>
+                            <div class="w-full mt-2">
+                              <label class="">Category*</label><input type="text" placeholder="Category" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm">
+
+                            </div>
+                            <div class="w-full mt-3">
+                              <div class="flex justify-between">
+                                <label class="">Location*</label>
+                                <button id="open-btn" onclick="openModal('newLocation_modal');"
+                                  class="block bg-blue-800 text-white text-xs rounded px-2 py-1 cursor-pointer" type="button">
+                                  +New
+                                </button>
+                              </div>
+                              <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm"><option value="bb4eaffe-6d14-4589-8495-f7b76948e6dd"> Pon Nagar, Parivakkam </option><option value="b50d06eb-bd71-4a7d-bdd4-bd55288c5613"> Shamshabad, Mamidpally </option><option value="8db77f4e-5966-4e10-93f4-32fe7be72ed7"> Airport (L&amp;T Gate) </option><option value="3b46f800-9cbf-44b0-a007-6c3ade64a3e3"> Hyderabad </option><option value="06822b0a-f80d-4232-a109-04c9c09121ce"> Hyderabad </option></select>
+                            </div><!---->
+                          </div>
+                        </div>
+                      </div>                      
+                    </div>
+                    <div class="flex">
+                      <div class="intro-y basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class="font-medium text-base mr-auto">Configuration Feilds</h2>
+                          
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="flex flex-col">
+                            <div class="w-full">
+                              <div class="flex justify-between">
+                                <label>USED/NEW</label>
+                              </div>
+                              <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                <option value="used">Used</option><option value="new">New</option>
+                              </select>
+                            </div>
+                            <div class="w-full mt-2">
+                              <div class="flex justify-between">
+                                <label>ANSI/CE</label>
+                              </div>
+                              <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                <option value="ansi">ANSI</option><option value="ce">CE</option>
+                              </select>
+                            </div>
+                            <div class="w-full mt-2">
+                              <div class="flex justify-between">
+                                <label>Machine Ownership Ship Type</label>
+                              </div>
+                              <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                <option value="rental">Rental</option><option value="sands">S and S</option><option value="retail">Retail</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="intro-y basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class="font-medium text-base mr-auto py-3"></h2>
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="w-full mt-0">
+                            <div class="flex justify-between">
+                              <label>DIESEL/BATTERY</label>
+                            </div>
+                            <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                              <option value="diesel">Diesel</option><option value="battery">Battery</option>
+                            </select>
+                          </div>
+                          <div class="w-full mt-2">
+                            <label class="">ENGINE SR.NO</label>
+                            <input type="text" placeholder="Engine sr.no" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sms">
+                          </div>
+                          <div class="w-full mt-2">
+                            <label class="">2WD / 4WD</label>
+                            <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                              <option value="2WD">2WD</option><option value="4WD">4WD</option>
+                            </select>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class=" font-medium text-transparent text-base mr-auto">Others</h2>
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="flex flex-col">
+                            <div class="w-full">
+                              <label class="">Accessories (if any)</label>
+                              <input type="text" placeholder="Accessories" class="input w-full border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm mt-2">
+                            </div>
+                            
+                            <div class="w-full mt-3">
+                              <label class="">Tires</label>
+                              <select class="input w-full border mt-2 border-slate-300 dark:bg-slate-900  font-medium rounded-md text-sm">
+                                <option > Airfilled </option><option > Foam </option>
+                              </select>
+                            </div><!---->
+                          </div>
+                        </div>
+                      </div>      
+                    </div>
+                    
+                    <div class="flex">
+                      <div class="intro-y box basis-1/2 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class="font-medium text-base mr-auto">Commercial Details</h2>
+                          <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                            <input onclick="commDetails()" type="checkbox" name="toggle" id="showComm" class="comToggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer"/>
+                            <label for="showComm" class="comToggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                          </div>
+                        </div>
+                        
+                        
+                        <div id="" class="showOnComm hidden p-5 text-sm">
+                            <div class="flex flex-col">
+                                    <div class="w-full mt-2"><label class=""> PO No.and copy placed on OEM</label>
+                                      <input type="text" placeholder="PO No.and copy placed on OEM" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> PO Date</label>
+                                      <input type="date" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Invoice No.</label>
+                                      <input type="text" placeholder="Invoice No." class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Invoice Date</label>
+                                      <input type="date" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Payment Terms</label>
+                                      <input type="text" placeholder="Payment Terms" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Payment Remitted to OEM</label>
+                                      <input type="text" placeholder="Payment Remitted to OEM" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Date of Payment Remitted to OEM</label>
+                                      <input type="date" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Exchange Rate of Remittence</label>
+                                      <input type="text" placeholder="Exchange Rate of Remittence" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div   class="showOnComm hidden intro-y  box basis-1/2 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                            <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                              <h2 class="text-transparent font-medium text-base mr-auto">Commercial Details</h2>
+                              
+                            </div>
+                            <div class="p-5 text-sm">
+                              <div class="flex flex-col">
+                                    
+                                    <div class="w-full mt-2"><label class=""> Date of Custom Duty Payment</label>
+                                      <input type="date" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Ex Work Price</label>
+                                      <input type="text" placeholder="Ex Work Price" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> CIF Charges</label>
+                                      <input type="text" placeholder="0" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Total Cost</label>
+                                      <input type="text" placeholder="0" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> BOE No.</label>
+                                      <input type="text" placeholder="BOE No." class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Custom Duty Value</label>
+                                      <input type="text" placeholder="Custom Duty Value" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> GST Amount</label>
+                                      <input type="text" placeholder="GST Amount" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                    <div class="w-full mt-2"><label class=""> Ex Rate as per BOE</label>
+                                      <input type="text" placeholder="Ex Rate as per BOE" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                    </div>
+                                </div>
+                            </div> 
+                          </div>
+                        </div>
+                      <div class="showOnComm hidden "> 
+                        <div  class="flex">
+                          <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                            <div class="p-5 text-sm">
+                              <div class="flex flex-col">
+                                <div class="w-full mt-2"><label class=""> Clearing Charges </label>
+                                  <input type="number" placeholder="Clearing Charges" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                </div>
+                                <div class="w-full mt-2"><label class=""> CHA Charges </label>
+                                  <input type="number" placeholder="CHA Charges" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                </div>
+                                <div class="w-full mt-2"><label class=""> Transportation charges upto yard </label>
+                                  <input type="number" placeholder="Transportation charges upto yard" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                </div>
+                                <div class="w-full mt-2"><label class=""> Country / Port of dispatch </label>
+                                  <input type="text" placeholder="Country / Port of dispatch" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                </div>
                               </div>
                             </div>
-                          </td>
-                        </tr>
-                        <!--Table Row  2-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
-                          <td class="text-center py-3 rounded-l-lg ">
-                            <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
-                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
-                          </td>
-                          <td class="text-center"> MAU020 </td>
-                          <td class="text-center"> Z452508A-38564 </td>
-                          <td class="text-center"> ARTICULATING BOOM LIFT </td>
-                          <td class="">
-                            <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
-                          </td>
-                          <td class="">
-                            <div class="flex items-center justify-center">
-                              <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
-                            </div>
-                          </td>
-                          <td class="table-report__action w-56 rounded-r-lg">
-                            <div class="flex justify-center items-center">
-                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
-                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg> Update 
-                              </div>
-                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
-                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
-                                  <polyline points="3 6 5 6 21 6"></polyline>
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg> Delete 
+                          </div>
+                          <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                            <div class="p-5 text-sm">
+                              <div class="flex flex-col">
+                                <div class="w-full mt-2"><label class=""> Port of clearance </label>
+                                  <input type="text" placeholder="Port of clearance" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                  <div class="w-full mt-2"><label class=""> Under which GST machine cleared </label>
+                                    <input type="text" placeholder="Under which GST machine cleared" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                  <div class="w-full mt-2"><label class=""> Insurance Cost </label>
+                                    <input type="number" placeholder="Insurance Cost" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                  <div class="w-full mt-2"><label class=""> Insurer </label>
+                                    <input type="text" placeholder="Insurer" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </td>
-                        </tr>
-                        <!--Table Row  3-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
-                          <td class="text-center py-3 rounded-l-lg ">
-                            <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
-                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
-                          </td>
-                          <td class="text-center"> MAU020 </td>
-                          <td class="text-center"> Z452508A-38564 </td>
-                          <td class="text-center"> ARTICULATING BOOM LIFT </td>
-                          <td class="">
-                            <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
-                          </td>
-                          <td class="">
-                            <div class="flex items-center justify-center">
-                              <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
-                            </div>
-                          </td>
-                          <td class="table-report__action w-56 rounded-r-lg">
-                            <div class="flex justify-center items-center">
-                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
-                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg> Update 
-                              </div>
-                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
-                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
-                                  <polyline points="3 6 5 6 21 6"></polyline>
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg> Delete 
+                            <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
+                              <div class="p-5 text-sm">
+                                <div class="flex flex-col">
+                                  <div class="w-full mt-2"><label class=""> Period of Insurance </label>
+                                    <input type="text" placeholder="Period of Insurance" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                  <div class="w-full mt-2"><label class=""> Renewal Date </label>
+                                    <input type="date" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                  <div class="w-full mt-2"><label class=""> Total Landed Cost </label>
+                                    <input type="number" placeholder="Total Landed Cost" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                  <div class="w-full mt-2"><label class=""> Total Landed Cost + GST </label>
+                                    <input type="number" placeholder="Total Landed Cost + GST" class="input w-full border mt-2 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm">
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </td>
-                        </tr>
-                        <!--Table Row  4-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
-                          <td class="text-center py-3 rounded-l-lg ">
-                            <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
-                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
-                          </td>
-                          <td class="text-center"> MAU020 </td>
-                          <td class="text-center"> Z452508A-38564 </td>
-                          <td class="text-center"> ARTICULATING BOOM LIFT </td>
-                          <td class="">
-                            <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
-                          </td>
-                          <td class="">
-                            <div class="flex items-center justify-center">
-                              <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
-                            </div>
-                          </td>
-                          <td class="table-report__action w-56 rounded-r-lg">
-                            <div class="flex justify-center items-center">
-                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
-                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg> Update 
+                        </div>
+                      </div> 
+                    
+                      
+
+                    <div class="flex">
+                      <div class="basis-full bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl justify-between">
+                        <div class="flex p-5 border-b border-gray-200 dark:border-dark-5">
+                          <h2 class="font-medium text-base mr-auto " >Asset Photos</h2>
+                          <button class="button border rounded-lg py-2 px-2 font-medium text-sm text-right text-gray-800 dark:border-gray-400 dark:text-gray-300 hidden sm:flex">
+                            <input type="file" accept="image/jpeg, image/png" class="hidden" wfd-id="id57">
+                            +Add Photos 
+                          </button>
+                          
+                        </div>
+                        <div class="p-5 text-sm">
+                          <div class="flex flex-col text-transparent">
+                            Photos here
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    
+                    <div class="flex mt-5" >
+
+                        <button onclick="showDiv('main-assets','new-asset');" class="flex basis-1/2 align-middle justify-center py-3 border mx-4 rounded-lg border-gray-600 dark:border-gray-400 text-sm font-medium text-slate-800 dark:text-slate-200">
+                              Cancel
+                        </button>
+
+                        <button onclick="showDiv('main-assets','new-asset');" class="flex basis-1/2 justify-center py-4 mx-4 border rounded-lg bg-blue-800 text-sm font-medium text-white">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>  
+                            Save Changes
+                        </button>
+
+                    </div>
+                  </div> 
+
+                  <!--Asset History-->
+                  <div id="asset-history" class="hidden">
+                    <div class="flex ">
+                      <button onclick="showDiv('main-assets','asset-history');" href="">
+                        <svg  xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-6 cursor-pointer feather feather-arrow-left">
+                        <line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                      </button>
+                      <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">History</p>
+                    </div>
+                    <div class="flex">
+                      <table class="table border-separate border-spacing-y-3  sm:mt-2 w-full ">
+                        <thead>
+                          <tr class="">
+                            <th class="w-80 whitespace-no-wrap  px-5 py-1 font-medium">BRAND &amp; MODEL</th>
+                            <th class="w-80 text-center whitespace-no-wrap px-5 py-1 font-medium">TAG ID</th>
+                            <th class="w-80 text-center whitespace-no-wrap px-5 py-1 font-medium">TASK</th>
+                            <th class="w-80 text-center whitespace-no-wrap px-5 py-1 font-medium">TIME</th>
+                            <th class="w-96 text-center whitespace-no-wrap px-5 py-1 font-medium">ACTION</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class=" py-3 text-center rounded-l-lg"><a href="" class="font-medium whitespace-no-wrap">HAULOTTE</a>
+                              <div class="text-gray-600 text-xs whitespace-no-wrap"> Compact 10 AE </div>
+                            </td>
+                            <td class="text-center"> MSE019 </td>
+                            <td class="text-center"><span class="py-1 px-2 rounded text-xs bg-teal-500 text-white cursor-pointer font-medium">Added a photo to an asset</span></td>
+                            <td class="text-center"> 2023-03-03 </td>
+                            <td class="table-report__action w-56 rounded-r-lg border-l border-slate-100 ">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-yellow-400 cursor-pointer mr-4">
+                                  <svg class="stroke-yellow-400 py-1" xmlns="http://www.w3.org/2000/svg" width="21px" height="21px" viewBox="0 0 24 24" fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-external-link">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> 
+                                    Visit 
+                                </div>
                               </div>
-                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
-                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
-                                  <polyline points="3 6 5 6 21 6"></polyline>
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg> Delete 
+                            </td>
+                          </tr>
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class=" py-3 text-center rounded-l-lg"><a href="" class="font-medium whitespace-no-wrap">HAULOTTE</a>
+                              <div class="text-gray-600 text-xs whitespace-no-wrap"> Compact 10 AE </div>
+                            </td>
+                            <td class="text-center"> MSE019 </td>
+                            <td class="text-center"><span class="py-1 px-2 rounded text-xs bg-teal-500 text-white cursor-pointer font-medium">Added a photo to an asset</span></td>
+                            <td class="text-center"> 2023-03-03 </td>
+                            <td class="table-report__action w-56 rounded-r-lg border-l border-slate-100 ">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-yellow-400 cursor-pointer mr-4">
+                                  <svg class="stroke-yellow-400 py-1" xmlns="http://www.w3.org/2000/svg" width="21px" height="21px" viewBox="0 0 24 24" fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-external-link">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> 
+                                    Visit 
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <!--Table Row  5-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
-                          <td class="text-center py-3 rounded-l-lg ">
-                            <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
-                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
-                          </td>
-                          <td class="text-center"> MAU020 </td>
-                          <td class="text-center"> Z452508A-38564 </td>
-                          <td class="text-center"> ARTICULATING BOOM LIFT </td>
-                          <td class="">
-                            <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
-                          </td>
-                          <td class="">
-                            <div class="flex items-center justify-center">
-                              <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
-                            </div>
-                          </td>
-                          <td class="table-report__action w-56 rounded-r-lg">
-                            <div class="flex justify-center items-center">
-                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
-                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg> Update 
+                            </td>
+                          </tr>
+                          <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                            <td class=" py-3 text-center rounded-l-lg"><a href="" class="font-medium whitespace-no-wrap">HAULOTTE</a>
+                              <div class="text-gray-600 text-xs whitespace-no-wrap"> Compact 10 AE </div>
+                            </td>
+                            <td class="text-center"> MSE019 </td>
+                            <td class="text-center"><span class="py-1 px-2 rounded text-xs bg-teal-500 text-white cursor-pointer font-medium">Added a photo to an asset</span></td>
+                            <td class="text-center"> 2023-03-03 </td>
+                            <td class="table-report__action w-56 rounded-r-lg border-l border-slate-100 ">
+                              <div class="flex justify-center items-center">
+                                <div class="flex items-center justify-center text-yellow-400 cursor-pointer mr-4">
+                                  <svg class="stroke-yellow-400 py-1" xmlns="http://www.w3.org/2000/svg" width="21px" height="21px" viewBox="0 0 24 24" fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-external-link">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> 
+                                    Visit 
+                                </div>
                               </div>
-                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
-                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
-                                  <polyline points="3 6 5 6 21 6"></polyline>
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg> Delete 
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <!--Table Row  6-->
-                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
-                          <td class="text-center py-3 rounded-l-lg ">
-                            <a href="" class="font-medium whitespace-no-wrap">GENIE</a>
-                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Z4525JRT </div>
-                          </td>
-                          <td class="text-center"> MAU020 </td>
-                          <td class="text-center"> Z452508A-38564 </td>
-                          <td class="text-center"> ARTICULATING BOOM LIFT </td>
-                          <td class="">
-                            <div class="flex items-center justify-center text-theme-9 font-medium text-lime-600 dark:text-white"> 2008 </div>
-                          </td>
-                          <td class="">
-                            <div class="flex items-center justify-center">
-                              <span class="py-1 px-2 rounded text-xs bg-blue-700 text-white"> 2022-12-28</span>
-                            </div>
-                          </td>
-                          <td class="table-report__action w-56 rounded-r-lg">
-                            <div class="flex justify-center items-center">
-                              <div class="flex items-center justify-center text-gray-500 cursor-pointer mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-edit">
-                                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg> Update 
-                              </div>
-                              <div class="flex items-center justify-center text-theme-6 cursor-pointer text-red-600">
-                                <svg class="stroke-red-600 pr-1" xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-trash">
-                                  <polyline points="3 6 5 6 21 6"></polyline>
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg> Delete 
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                  <!--Table Ends-->
+                  <!--Asset History Ends-->
+          
                 </div>
                 <!--Assets Ends-->
+                
+                <!--New Asset Modals-->
+                    <div id="my-modal" class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" ></div>
+                    <div id="newSite_modal" class=" hidden absolute top-0  left-72 w-6/12 border p-4 shadow-lg rounded-md bg-white dark:bg-slate-800">
+                                    <h2 data-v-6fbed78c="" class="font-medium text-xl mr-auto mb-2">New Site</h2>
+                                      <div  class="flex">
+                                        <div class="basis-1/2 mr-2"> 
+                                          <label for="">Name</label> <input type="text" placeholder="eg: Durbin" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                        </div>
+                                        <div class="basis-1/2"> 
+                                          <label for="">Suite</label> <input type="text" placeholder="Suite" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                        </div>
+                                      </div>
+                                      <div class="basis-full">
+                                        <label class="">Description</label><textarea rows="3" placeholder="eg: Somthing about asset that will help others to find." class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" spellcheck="false"></textarea>
+                                      </div>
+                                      <div class="basis-full">
+                                          <label for="">Address</label> <br> <input type="text" placeholder="eg: 6th Floor, Kolkata" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14">    
+                                      </div>
+                                      <div  class="flex">
+                                        <div class="basis-1/2 mr-2"> 
+                                          <label for="">State</label> <input type="text" placeholder="State" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                        </div>
+                                        <div class="basis-1/2"> 
+                                          <label for="">City</label> <input type="text" placeholder="City" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                        </div>
+                                      </div>
+                                      <div  class="flex">
+                                        <div class="basis-1/2 mr-2"> 
+                                          <label for="">Pin code</label> <input type="text" placeholder="Pin Code" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                        </div>
+                                        <div class="basis-1/2"> 
+                                          <label for="">Country</label> <input type="text" placeholder="Country" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                        </div>
+                                      </div>
+                                      <div class="text-right px-4 py-3 mt-3">
+                                            <button id="ok-btn"  onclick="closeModal('newSite_modal');" class="inline px-4 py-2 bg-blue-200  text-black text-base font-medium rounded-md w-1/3 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                              Cancel
+                                            </button>
+                                            <button id="ok-btn" onclick="closeModal('newSite_modal');" class="inline px-4 py-2 bg-blue-800 text-white text-base font-medium rounded-md w-1/3 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                              Save Changes
+                                            </button>
+                                      </div>
+                    </div>
+                    <div id="newLocation_modal" class=" hidden absolute top-0  left-72 w-6/12 border p-4 shadow-lg rounded-md bg-white dark:bg-slate-700">
+                          <h2 data-v-6fbed78c="" class="font-medium text-xl mr-auto mb-2">New Site</h2>
+                                      <div class="basis-full">
+                                          <label for="">Location</label> <br> <input type="text" placeholder="eg: Kolkata" class="input w-full rounded-lg border mt-2 flex-1" wfd-id="id14">    
+                                      </div>
+                                      <div  class="basis-full">
+                                        <label  class="">Site Id</label>
+                                        <select  class="input w-full border mt-2 rounded-lg">
+                                        <option data-v-4cb394da="" value="fd5c6914-1993-4fc6-84c8-94f0e122d6d3"> Poonamalle </option><option data-v-4cb394da="" value="40b8524c-db63-48be-ac25-73bfae5406da"> Rajiv Gandhi  Airport (L&amp;T Gate) </option><option data-v-4cb394da="" value="8a297566-93d8-46b6-ba03-1a2b3a7ea20f"> Amazon Circle (GMR) </option><option data-v-4cb394da="" value="f2dcb6d3-b078-444a-82d1-d5fd28ae60e4"> Rajiv Gandhi International Airport (Basement) </option></select><div data-v-4cb394da="" class="text-xs text-red-500 mt-2"></div>
+                                      </div>
+                                      <div class="text-right px-4 py-3 mt-3">
+                                            <button id="ok-btn"  onclick="closeModal('newLocation_modal');" class="inline px-4 py-2 bg-blue-200  text-black text-base font-medium rounded-md w-1/3 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                              Cancel
+                                            </button>
+                                            <button id="ok-btn" onclick="closeModal('newLocation_modal');" class="inline px-4 py-2 bg-blue-800 text-white text-base font-medium rounded-md w-1/3 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                              Save Changes
+                                            </button>
+                                      </div>
+                    </div>
+                <!--New Asset Modals End-->
+
+
 
                 <!--Maintenance Begins-->
-                <div class="hidden" id="tab-maintenance">
+                <div class="tabList hidden" id="tab-maintenance">
                   <!--Upper tabs-->
                   <div class="flex">
                     <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Maintenance</p>
@@ -839,7 +1335,7 @@
                 <!--Maintenance Ends-->
 
                 <!--LEASE Begins-->
-                <div class="hidden" id="tab-lease">
+                <div class="tabList hidden" id="tab-lease">
                   <!--Upper tabs begins-->
                   <div class="flex">
                     <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Lease</p>
@@ -907,20 +1403,26 @@
                 <!--Lease Ends-->
 
                 <!--Telematics Begins-->
-                <div class="hidden" id="tab-telematics">
+                <div class="tabList hidden" id="tab-telematics">
                   
                   <!--Upper Nav-->
                   <div class="flex justify-between">
-                    <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Device Events</p>
+                    <p id="tele-heading" class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Device Events</p>
+                    
                     <div class=" hidden sm:flex items-center ml-auto mt-0"><!----><!---->
+                      <div id="gps-buttons" class="hidden">
+                        <button  class="button text-white bg-blue-800 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">New Site </button>
+                        <button  class="button text-white bg-orange-500 py-2 px-2 rounded-md shadow-md mr-2 text-xs sm:text-sm cursor-pointer">New Location </button>
+                      </div>
+                      
                       <div class="intro-y pr-1">
                         <div class="chat box sm:w-full w-44">
                           <div class="text-sm nav-tabs justify-center flex bg-white dark:bg-slate-600 rounded-md">
-                            <span onclick="changeActiveTeleTab(event,'device-events');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate active">Device events</span>
-                            <span onclick="changeActiveTeleTab(event,'tagInOut');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Tag In/Out</span>
-                            <span onclick="changeActiveTeleTab(event,'usage-actual');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Usage Vs Actual</span>
-                            <span onclick="changeActiveTeleTab(event, 'gps-tracker');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">GPS tracker</span>
-                            <span onclick="changeActiveTeleTab(event, 'geo-tagging');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Geo-tagging</span>
+                            <span onclick="changeActiveTeleTab(event,'device-events', 'Device Events');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate active">Device events</span>
+                            <span onclick="changeActiveTeleTab(event,'tagInOut', 'Tag In/Out');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Tag In/Out</span>
+                            <span onclick="changeActiveTeleTab(event,'usage-actual', 'Usage/Actual');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Usage Vs Actual</span>
+                            <span onclick="changeActiveTeleTab(event, 'gps-tracker', 'GPS Tracker');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">GPS tracker</span>
+                            <span onclick="changeActiveTeleTab(event, 'geo-tagging' , 'Geo Tagging');" class="tele-tab flex-2 py-2 px-2 rounded-md text-center cursor-pointer truncate">Geo-tagging</span>
                           </div>
                         </div>
                       </div>
@@ -935,7 +1437,7 @@
                         <div onclick="changeActiveDevEventsTab(event, 'incidentLogs')" class="dev-event mx-3 pl-5 py-1  rounded-md">Incident Logs</div>
                     </div>
                     <div id="listOfAssets" class="devEvents basis-9/12 rounded-lg bg-white dark:bg-slate-700 my-5 ml-5 py-5">
-                      <table class="table table-report sm:mt-2 h-40">
+                      <table class="table table-report sm:mt-2 h-40 w-full">
                         <thead>
                           <tr class="font-thin">
                             <th class="w-48 text-center whitespace-no-wrap font-medium">ASSET</th>
@@ -950,7 +1452,7 @@
                       </table>
                     </div>
                     <div id="incidentLogs" class="devEvents hidden basis-9/12 rounded-lg bg-white dark:bg-slate-700 my-5 ml-5 py-5">
-                      <table class="table table-report sm:mt-2 h-40">
+                      <table class="table table-report sm:mt-2 h-40 w-full">
                         <thead>
                           <tr class="font-thin">
                             <th class="w-80 text-center whitespace-no-wrap font-medium">TAG ID</th>
@@ -967,7 +1469,7 @@
 
                   <!--Tag IN/OUT-->
                   <div id="tagInOut" class="teleDiv hidden ">
-                    <table class="table table-report sm:mt-2 h-72">
+                    <table class="table table-report sm:mt-2 h-72 w-full">
                       <thead>
                         <tr>
                           <th class="w-56 font-normal text-center whitespace-no-wrap">DEVICE ID</th>
@@ -984,15 +1486,15 @@
 
                   <!--Usage vs Actual-->
                   <div id="usage-actual" class="teleDiv hidden">
-                    <table class="table table-report sm:mt-2 h-72">
+                    <table class="table table-report sm:mt-2 h-72 w-full">
                       <thead>
                         <tr>
-                          <th class="w-56 font-normal text-center whitespace-no-wrap">ASSET</th>
-                          <th class="w-56 font-normal text-center whitespace-no-wrap">ASSET NO</th>
-                          <th class="w-56 font-normal text-center whitespace-no-wrap">STATUS</th>
-                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL USAGE HOURS</th>
-                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL ACTIVE HOURS</th>
-                          <th class="w-60 font-normal text-center whitespace-no-wrap">TOTAL OVERTIME</th>
+                          <th class="w-56 font-normal text-sm whitespace-no-wrap">ASSET</th>
+                          <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">ASSET NO</th>
+                          <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">STATUS</th>
+                          <th class="w-60 font-normal text-sm text-center whitespace-no-wrap">TOTAL USAGE HOURS</th>
+                          <th class="w-60 font-normal text-sm text-center whitespace-no-wrap">TOTAL ACTIVE HOURS</th>
+                          <th class="w-60 font-normal text-sm text-center whitespace-no-wrap">TOTAL OVERTIME</th>
                         </tr>
                       </thead>
                       <tbody></tbody>
@@ -1001,19 +1503,89 @@
 
                   <!--GPS Tracker-->
                   <div id="gps-tracker" class="teleDiv hidden">
-                    <p>GPS TRACKER</p>
+                      <div id="map" style="width: 100%; height: 400px;"></div>
+                      <table class="table table-report sm:mt-2">
+                        <thead>
+                          <tr>
+                            <th class="w-56 font-normal text-sm whitespace-no-wrap">BRAND &amp; MODEL</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">ADDRESS</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">CITY</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">STATE</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">COUNTRY</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">USAGE HOURS</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">STATUS</th>
+                            <th class="w-56 font-normal text-sm text-center whitespace-no-wrap">ACTION</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
                   </div>
 
                   <!--Geo Tagging-->
                   <div id="geo-tagging" class="teleDiv hidden">
-                    <p>GEO TAGGING</p>
+                    <div class="col-span-12 flex justify-end my-4">
+                      <form class="intro-x search hidden sm:block">
+                        <input type="text" placeholder="Search..." class="search__input input bg-gray-200 rounded-3xl border-none">
+                        <button type="submit" class="hidden"></button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
+                              class="w-5 h-5 absolute top-0 right-0 bottom-0 mt-28 mr-7 feather feather-search search__icon dark:text-gray-300 cursor-pointer">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><!---->
+                      </form>
+                    </div>
+                    <div class="flex">
+                      <div class="basis-1/4 mr-1">
+                        <input type="text" placeholder="Latitude" class="text-sm input w-full text-slate-400 dark:text-slate-100 bg-white dark:bg-slate-700 border-gray-300 dark:border-gray-600 rounded-md ">
+                      </div>
+                      <div class="basis-1/4 mx-1">
+                        <input type="text" placeholder="Longitude" class="text-sm input w-full text-slate-400 dark:text-slate-100 bg-white dark:bg-slate-700 border-gray-300 dark:border-gray-600 rounded-md ">
+                      </div>
+                      <div class="basis-1/4 mx-1">
+                        <select class="text-sm input w-full text-slate-400 dark:text-slate-100 bg-white dark:bg-slate-700 border-gray-300 dark:border-gray-600 rounded-md">
+                          <option> Poonamalle </option>
+                          <option> Rajiv Gandhi  Airport (L&amp;T Gate) </option>
+                          <option> Amazon Circle (GMR) </option>
+                          <option> Rajiv Gandhi International Airport (Basement) </option>
+                        </select>
+                      </div>
+                      <div class="basis-1/4 ml-1">
+                        <button class=" text-sm font-medium button w-full h-full  text-white flex items-center justify-center bg-blue-800 rounded-md">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 feather feather-plus">
+                            <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Add Geo Tag 
+                        </button>
+                      </div>
+                    </div>
+                    <table  class="w-full mt-4">
+                      <tbody class="">
+                        <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
+                          <td class="w-max text-left py-3 rounded-l-lg px-5 ">
+                            <a href="" class="font-medium whitespace-no-wrap">Poonamalle</a>
+                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Name </div>
+                          </td>
+                          <td class=" text-center py-3 px-10 ">
+                            <a href="" class="font-medium whitespace-no-wrap">13.0633</a>
+                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Latitude </div>
+                          </td>
+                          <td class=" text-center py-3 px-10 ">
+                            <a href="" class="font-medium whitespace-no-wrap">80.099</a>
+                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Longitude </div>
+                          </td>
+                          <td class=" text-center rounded-r-lg px-10">
+                            <a href="" class="font-medium whitespace-no-wrap">50.00 m</a>
+                            <div class="text-gray-400 text-xs whitespace-no-wrap"> Radius </div>
+                          </td>
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+                      
+                    
                   </div>
 
                 </div>
                 <!--Telematics Ends-->
 
                 <!--Operator Begins-->
-                <div class="hidden" id="tab-operator">
+                <div class="tabList hidden" id="tab-operator">
                   <!--Upper tabs-->
                   <div class="flex">
                     <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Operators</p>
@@ -1038,7 +1610,7 @@
 
                   <!--Table Begins-->
                   <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-                    <table class="table border-separate border-spacing-y-3  sm:mt-2 ">
+                    <table class="table border-separate border-spacing-y-3  sm:mt-2 w-full ">
                       <thead><!--Table Headers-->
                         <tr class="text-sm  text-slate-600 dark:text-white">
                           <th class="w-40 whitespace-no-wrap font-medium">Name</th>
@@ -1051,6 +1623,7 @@
                         </tr>
                       </thead>
                       <tbody>
+                        
                         <!--Table Row  1-->
                         <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600  dark:text-slate-200">
                           <td class="text-center py-3 rounded-l-lg ">
@@ -1088,7 +1661,7 @@
                 </div>
                 <!--Operator Ends-->
 
-                <div class="hidden" id="tab-settings">
+                <div class="tabList hidden" id="tab-settings">
                     <p>
                       Settings
                     </p>
@@ -1103,5 +1676,11 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
       defer
     ></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js">
+    </script>
+    
 </body>
 </html>
