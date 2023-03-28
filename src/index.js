@@ -1,54 +1,64 @@
+document.onload=change_text('Dashboard');
+window.location.href = '#tab-dashboard';
 const checkbox = document.querySelector("#checkmode");
-      const html = document.querySelector("html");
-
+const html = document.querySelector("html");
+var last="nav-tab1";
+document.onload=changeMainTab(last);
+var lastmode;
       const toggleDarkMode = function () {
         if(checkbox.checked)
         {html.classList.add("dark");
-          document.getElementById("nav-tab").classList.add("bg-none")
+          
+          
         }
         else
         { html.classList.remove("dark");
         }
       }
       toggleDarkMode();
-      checkbox.addEventListener("click",toggleDarkMode);
+      checkbox.addEventListener("click",() => {    
+        toggleDarkMode();
+        changeMainTab(last);    
+   });
 
-function myFunction() {
-  // Get the checkbox
-  var checkBox = document.getElementById("dark");
+
+function changeMainTab(lasttab)
+{
   
-  var label=document.getElementById("mode-label")
-  var prof_dropdown=document.getElementById("profile-dropdown");
-  var notif_dropdown=document.getElementById("notification-content");
-  // If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    //----Darkmode button
-    label.innerHTML="Light Mode";
-    label.classList.remove("bg-white");
-    label.classList.add("bg-slate-500");
-    label.classList.remove("text-slate-700");
-    label.classList.add("text-slate-200");
-    document.body.style.backgroundColor = "#232a3b";
-    
-    
-  } else {
-    //----Darkmode button
-    label.innerHTML="Dark Mode";
-    label.classList.remove("bg-slate-500");
-    label.classList.add("bg-white");
-    label.classList.remove("text-slate-200");
-    label.classList.add("text-slate-700");
-    document.body.style.backgroundColor = "#1e40af";
-    
-    
-    
-  }
+    if((checkbox.checked))
+      {
+        document.getElementById(lasttab).classList.remove("bg-slate-100");
+        document.getElementById(lasttab).classList.remove("text-black");
+        
+        document.getElementById(lasttab).classList.add("bg-gray-800");
+        document.getElementById(lasttab).classList.add("text-white");
+        
+      }
+      else
+      {
+        document.getElementById(lasttab).classList.remove("bg-gray-800");
+        document.getElementById(lasttab).classList.remove("text-white");
+
+        document.getElementById(lasttab).classList.add("bg-slate-100");
+        document.getElementById(lasttab).classList.add("text-black");
+      }
 }
-
-
-function changeActiveTab(event,tabID)
+function changeActiveTab(event,tabID,navtab)
 {
     darkcheck=document.getElementById("checkmode")
+    if(darkcheck.checked)
+    {
+      var tabbg="bg-gray-800";
+      var tabnobgtxt="text-slate-100";
+      var tabtxt="text-white";
+    }
+    else
+    {
+      var tabbg="bg-slate-100";
+      var tabnobgtxt="text-white";
+      var tabtxt="text-black";
+    }
+
     if(true)
     {
       let element = event.target;
@@ -61,29 +71,37 @@ function changeActiveTab(event,tabID)
       
       for(let i = 0 ; i < aElements.length; i++)
       {
-          aElements[i].classList.remove("text-white");
-          aElements[i].classList.remove("text-base");
-          aElements[i].classList.remove("underline");
-          aElements[i].classList.remove("underline-offset-8");
-          aElements[i].classList.add("text-slate-200");
-          aElements[i].classList.add("text-sm");
+          aElements[i].classList.remove(tabtxt);
+          
+          aElements[i].classList.remove(tabbg);
+          aElements[i].classList.add(tabnobgtxt);
+          
+         if(aElements[i].classList.contains("bg-slate-100"))
+         {
+          aElements[i].classList.remove("bg-slate-100");
+         }
+         if(aElements[i].classList.contains("bg-gray-800"))
+         {
+          aElements[i].classList.remove("bg-gray-800");
+         }
           
         
           tabDisp[i].classList.add("hidden");
           tabDisp[i].classList.remove("block");
       }
       
-      element.classList.remove("text-slate-200");
-      element.classList.remove("text-sm");
-      element.classList.add("text-white");
-      element.classList.add("text-base");
-      element.classList.add("underline");
-      element.classList.add("underline-offset-8");
+      element.classList.remove(tabnobgtxt);
       
+      element.classList.add(tabtxt);
+      
+      element.classList.add(tabbg);
+      
+
+
       document.getElementById(tabID).classList.remove("hidden");
       document.getElementById(tabID).classList.add("block");
       
-      
+    last=navtab;  
     }
     
     
@@ -150,59 +168,6 @@ function getActualHrs(txt){
     }
   };
   new Chart("myChart", config);
-
-  /*function newDate(days) {
-    return moment().add(days, 'd');
-  }
-  
-  var config = {
-    type: 'line',
-    data: {
-      labels: [newDate(-4), newDate(-3), newDate(2), newDate(3), newDate(4)],
-      datasets: [{
-        label: "My First dataset",
-        data: [1, 3, 4, 2, 1],
-      }]
-    },
-    options: {
-      scales: {
-        xAxes: [{
-          type: 'time',
-          time: {
-            displayFormats: {
-              
-              'day': 'DD MM YYYY',
-              
-            }
-          }
-        }],
-      },
-    }
-  };
-  
-  var ctx = document.getElementById("myChart").getContext("2d");
-  new Chart(ctx, config);*/
- 
-  
-  /*const config = {
-    type: 'scatter',
-    data: {
-      datasets: [{
-        data: [{x: '2016-12-25', y: 20}, {x: '2016-12-26', y: 10}]
-      }]
-    },
-    options: {
-      scales: {
-          xAxes: {
-              type: 'time',
-              time: {
-                  unit: 'day'
-              }
-          }
-      }
-    }
-  };
-  new Chart("myChart", config);*/
 
 
   function initMap() {
