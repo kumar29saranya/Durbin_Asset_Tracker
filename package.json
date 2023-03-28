@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "flowbite": "^1.6.3",
-    "jquery": "^3.6.3"
+    "jquery": "^3.6.3",
+    "tom-select": "^2.2.2"
   }
 }

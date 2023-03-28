@@ -316,3 +316,7 @@ function getActualHrs(txt){
           }
       }
     }
+
+    new TomSelect("#select-state",{
+      maxItems: 3
+    });
