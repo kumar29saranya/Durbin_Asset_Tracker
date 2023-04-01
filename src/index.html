@@ -802,7 +802,7 @@
                       </button>
                       <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">New Asset</p>
                     </div>
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 shadow-md hover:shadow-xl">
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto">Basic Feilds</h2>
@@ -889,7 +889,7 @@
                         </div>
                       </div>                      
                     </div>
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="intro-y basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto">Configuration Feilds</h2>
@@ -972,7 +972,7 @@
                       </div>      
                     </div>
                     
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="intro-y box basis-1/2 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto">Commercial Details</h2>
@@ -1048,8 +1048,8 @@
                             </div> 
                           </div>
                         </div>
-                      <div class="showOnComm hidden "> 
-                        <div  class="flex">
+                      <div class="showOnComm hidden  "> 
+                        <div  class="flex ">
                           <div class="intro-y box basis-1/3 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl">
                             <div class="p-5 text-sm">
                               <div class="flex flex-col">
@@ -1109,7 +1109,7 @@
                     
                       
 
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="basis-full bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl justify-between">
                         <div class="flex p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto " >Asset Photos</h2>
@@ -1128,7 +1128,7 @@
                     </div>
 
                     
-                    <div class="flex mt-5" >
+                    <div class="flex mt-5 animSlideup relative" >
                         <button onclick="showDiv('main-assets','new-asset');" class="flex basis-1/2 align-middle justify-center py-3 border mx-4 rounded-lg border-gray-600 dark:border-gray-400 text-sm font-medium text-slate-800 dark:text-slate-200">
                               Cancel
                         </button>
@@ -1221,69 +1221,7 @@
                 </div>
                 <!--Assets Ends-->
                 
-                <!--New Asset Modals-->
-                    <div id="my-modal" class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" ></div>
-                    <div id="newSite_modal" class=" hidden absolute top-0  left-72 w-6/12 border p-4 shadow-lg rounded-md bg-white dark:bg-slate-800">
-                                    <h2 data-v-6fbed78c="" class="font-medium text-xl mr-auto mb-2">New Site</h2>
-                                      <div  class="flex">
-                                        <div class="basis-1/2 mr-2"> 
-                                          <label for="">Name</label> <input type="text" placeholder="eg: Durbin" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
-                                        </div>
-                                        <div class="mt-2 basis-1/2"> 
-                                          <label for="">Suite</label> <input type="text" placeholder="Suite" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
-                                        </div>
-                                      </div>
-                                      <div class="mt-2 basis-full">
-                                        <label class="">Description</label><textarea rows="3" placeholder="eg: Somthing about asset that will help others to find." class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" spellcheck="false"></textarea>
-                                      </div>
-                                      <div class="mt-2 basis-full">
-                                          <label for="">Address</label> <br> <input type="text" placeholder="eg: 6th Floor, Kolkata" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14">    
-                                      </div>
-                                      <div  class="flex">
-                                        <div class="mt-2 basis-1/2 mr-2"> 
-                                          <label for="">State</label> <input type="text" placeholder="State" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
-                                        </div>
-                                        <div class="mt-2 basis-1/2"> 
-                                          <label for="">City</label> <input type="text" placeholder="City" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
-                                        </div>
-                                      </div>
-                                      <div  class="flex">
-                                        <div class="mt-2 basis-1/2 mr-2"> 
-                                          <label for="">Pin code</label> <input type="text" placeholder="Pin Code" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
-                                        </div>
-                                        <div class="mt-2 basis-1/2"> 
-                                          <label for="">Country</label> <input type="text" placeholder="Country" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
-                                        </div>
-                                      </div>
-                                      <div class="text-right px-4 py-3 mt-3">
-                                            <button id="ok-btn"  onclick="closeModal('newSite_modal');" class="inline px-4 py-2 bg-blue-200  text-black text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
-                                              Cancel
-                                            </button>
-                                            <button id="ok-btn" onclick="closeModal('newSite_modal');" class="inline px-4 py-2 bg-blue-800 text-white text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
-                                              Save Changes
-                                            </button>
-                                      </div>
-                    </div>
-                    <div id="newLocation_modal" class=" hidden absolute top-0  left-72 w-6/12 border p-4 shadow-lg rounded-md bg-white dark:bg-slate-700">
-                          <h2 data-v-6fbed78c="" class="font-medium text-xl mr-auto mb-2">New Site</h2>
-                                      <div class="basis-full">
-                                          <label for="">Location</label> <br> <input type="text" placeholder="eg: Kolkata" class="input w-full rounded-lg border mt-2 flex-1" wfd-id="id14">    
-                                      </div>
-                                      <div  class="basis-full mt-4">
-                                        <label  class="">Site Id</label>
-                                        <select  class="input w-full border mt-2 rounded-lg  text-gray-500">
-                                        <option data-v-4cb394da="" value="fd5c6914-1993-4fc6-84c8-94f0e122d6d3"> Poonamalle </option><option data-v-4cb394da="" value="40b8524c-db63-48be-ac25-73bfae5406da"> Rajiv Gandhi  Airport (L&amp;T Gate) </option><option data-v-4cb394da="" value="8a297566-93d8-46b6-ba03-1a2b3a7ea20f"> Amazon Circle (GMR) </option><option data-v-4cb394da="" value="f2dcb6d3-b078-444a-82d1-d5fd28ae60e4"> Rajiv Gandhi International Airport (Basement) </option></select><div data-v-4cb394da="" class="text-xs text-red-500 mt-2"></div>
-                                      </div>
-                                      <div class="text-right px-4 py-3 mt-3 ">
-                                            <button id="ok-btn"  onclick="closeModal('newLocation_modal');" class="inline px-4 py-2 bg-blue-200  text-black text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
-                                              Cancel
-                                            </button>
-                                            <button id="ok-btn" onclick="closeModal('newLocation_modal');" class="inline px-4 py-2 bg-blue-800 text-white text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
-                                              Save Changes
-                                            </button>
-                                      </div>
-                    </div>
-                <!--New Asset Modals End-->
+
 
 
 
@@ -1344,7 +1282,7 @@
                       </button>
                       <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">New Maintenance</p>
                     </div>
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="intro-y box basis-1/2 bg-white dark:bg-slate-900 rounded-lg mx-2 shadow-md hover:shadow-xl">
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto">Basic Feilds</h2>
@@ -1388,7 +1326,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="basis-1/2 bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl justify-between">
                         <div class="flex p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto " >Maintenance Photos</h2>
@@ -1418,7 +1356,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="flex mt-5" >
+                    <div class="flex mt-5 animSlideup relative" >
                       <button onclick="showDiv('main-maintenance','new-maintenance');" class="flex basis-1/2 align-middle justify-center py-3 border mx-4 rounded-lg border-gray-600 dark:border-gray-400 text-sm font-medium text-slate-800 dark:text-slate-200">
                             Cancel
                       </button>
@@ -1511,7 +1449,7 @@
                       </button>
                       <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">New Lease</p>
                     </div>
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="intro-y box basis-1/2 bg-white dark:bg-slate-900 rounded-lg mx-2 shadow-md hover:shadow-xl">
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                           <h2 class="font-medium text-base mr-auto">Basic Feilds</h2>
@@ -1598,7 +1536,7 @@
                       </div>
                     </div>
 
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       
                       <div class="basis-full bg-white dark:bg-slate-900 rounded-lg mx-2 mt-5 shadow-md hover:shadow-xl justify-between">
                         <div class="flex p-5 border-b border-gray-200 dark:border-dark-5">
@@ -1615,7 +1553,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="flex mt-5" >
+                    <div class="flex mt-5 animSlideup relative" >
                       <button onclick="showDiv('main-lease','new-lease');" class="flex basis-1/2 align-middle justify-center py-3 border mx-4 rounded-lg border-gray-600 dark:border-gray-400 text-sm font-medium text-slate-800 dark:text-slate-200">
                             Cancel
                       </button>
@@ -1760,7 +1698,7 @@
                         <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><!---->
                       </form>
                     </div>
-                    <div class="flex">
+                    <div class="flex animSlideup relative">
                       <div class="basis-1/4 mr-1">
                         <input type="text" placeholder="Latitude" class="text-sm input w-full text-slate-400 dark:text-slate-100 bg-white dark:bg-slate-700 border-gray-300 dark:border-gray-600 rounded-md ">
                       </div>
@@ -1811,6 +1749,70 @@
 
                 </div>
                 <!--Telematics Ends-->
+
+                <!--New Asset Modals-->
+                <div id="my-modal" class="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" ></div>
+                <div id="newSite_modal" class=" hidden absolute top-0  left-72 w-6/12 border p-4 shadow-lg rounded-md bg-white dark:bg-slate-800 animSlideup ">
+                                <h2 data-v-6fbed78c="" class="font-medium text-xl mr-auto mb-2">New Site</h2>
+                                  <div  class="flex">
+                                    <div class="basis-1/2 mr-2"> 
+                                      <label for="">Name</label> <input type="text" placeholder="eg: Durbin" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                    </div>
+                                    <div class="mt-2 basis-1/2"> 
+                                      <label for="">Suite</label> <input type="text" placeholder="Suite" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                    </div>
+                                  </div>
+                                  <div class="mt-2 basis-full">
+                                    <label class="">Description</label><textarea rows="3" placeholder="eg: Somthing about asset that will help others to find." class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" spellcheck="false"></textarea>
+                                  </div>
+                                  <div class="mt-2 basis-full">
+                                      <label for="">Address</label> <br> <input type="text" placeholder="eg: 6th Floor, Kolkata" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14">    
+                                  </div>
+                                  <div  class="flex">
+                                    <div class="mt-2 basis-1/2 mr-2"> 
+                                      <label for="">State</label> <input type="text" placeholder="State" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                    </div>
+                                    <div class="mt-2 basis-1/2"> 
+                                      <label for="">City</label> <input type="text" placeholder="City" class="input w-full  border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                    </div>
+                                  </div>
+                                  <div  class="flex">
+                                    <div class="mt-2 basis-1/2 mr-2"> 
+                                      <label for="">Pin code</label> <input type="text" placeholder="Pin Code" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                    </div>
+                                    <div class="mt-2 basis-1/2"> 
+                                      <label for="">Country</label> <input type="text" placeholder="Country" class="input w-full border mt-2 flex-1 border-slate-300 dark:bg-slate-900 font-medium rounded-md text-sm" wfd-id="id14"> 
+                                    </div>
+                                  </div>
+                                  <div class="text-right px-4 py-3 mt-3">
+                                        <button id="ok-btn"  onclick="closeModal('newSite_modal');" class="inline px-4 py-2 bg-blue-200  text-black text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                          Cancel
+                                        </button>
+                                        <button id="ok-btn" onclick="closeModal('newSite_modal');" class="inline px-4 py-2 bg-blue-800 text-white text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                          Save Changes
+                                        </button>
+                                  </div>
+                </div>
+                <div id="newLocation_modal" class=" hidden absolute top-0  left-72 w-6/12 border p-4 shadow-lg rounded-md bg-white dark:bg-slate-700 animSlideup">
+                      <h2 data-v-6fbed78c="" class="font-medium text-xl mr-auto mb-2">New Site</h2>
+                                  <div class="basis-full">
+                                      <label for="">Location</label> <br> <input type="text" placeholder="eg: Kolkata" class="input w-full rounded-lg border mt-2 flex-1" wfd-id="id14">    
+                                  </div>
+                                  <div  class="basis-full mt-4">
+                                    <label  class="">Site Id</label>
+                                    <select  class="input w-full border mt-2 rounded-lg  text-gray-500">
+                                    <option data-v-4cb394da="" value="fd5c6914-1993-4fc6-84c8-94f0e122d6d3"> Poonamalle </option><option data-v-4cb394da="" value="40b8524c-db63-48be-ac25-73bfae5406da"> Rajiv Gandhi  Airport (L&amp;T Gate) </option><option data-v-4cb394da="" value="8a297566-93d8-46b6-ba03-1a2b3a7ea20f"> Amazon Circle (GMR) </option><option data-v-4cb394da="" value="f2dcb6d3-b078-444a-82d1-d5fd28ae60e4"> Rajiv Gandhi International Airport (Basement) </option></select><div data-v-4cb394da="" class="text-xs text-red-500 mt-2"></div>
+                                  </div>
+                                  <div class="text-right px-4 py-3 mt-3 ">
+                                        <button id="ok-btn"  onclick="closeModal('newLocation_modal');" class="inline px-4 py-2 bg-blue-200  text-black text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                          Cancel
+                                        </button>
+                                        <button id="ok-btn" onclick="closeModal('newLocation_modal');" class="inline px-4 py-2 bg-blue-800 text-white text-sm font-medium rounded-md w-1/4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300">
+                                          Save Changes
+                                        </button>
+                                  </div>
+                </div>
+            <!--New Asset Modals End-->
 
                 <!--Operator Begins-->
                 <div class="tabList hidden" id="tab-operator">
