@@ -1542,6 +1542,11 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
 .bg-indigo-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(54 47 120 / var(--tw-bg-opacity));
@@ -1582,11 +1587,6 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
 .bg-teal-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(6 148 162 / var(--tw-bg-opacity));
@@ -1601,17 +1601,8 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-gray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
-}
-
-.bg-none {
-  background-image: none;
 }
 
 .bg-clip-padding {
@@ -1890,6 +1881,11 @@ input[type="range"]::-ms-fill-lower {
   color: rgb(224 36 36 / var(--tw-text-opacity));
 }
 
+.text-slate-100 {
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity));
+}
+
 .text-slate-200 {
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));
@@ -1937,29 +1933,6 @@ input[type="range"]::-ms-fill-lower {
 .text-yellow-400 {
   --tw-text-opacity: 1;
   color: rgb(227 160 8 / var(--tw-text-opacity));
-}
-
-.text-blue-800 {
-  --tw-text-opacity: 1;
-  color: rgb(30 66 159 / var(--tw-text-opacity));
-}
-
-.text-blue-900 {
-  --tw-text-opacity: 1;
-  color: rgb(35 56 118 / var(--tw-text-opacity));
-}
-
-.text-slate-100 {
-  --tw-text-opacity: 1;
-  color: rgb(241 245 249 / var(--tw-text-opacity));
-}
-
-.underline {
-  text-decoration-line: underline;
-}
-
-.underline-offset-8 {
-  text-underline-offset: 8px;
 }
 
 .shadow {
@@ -2118,6 +2091,61 @@ body{
   background-color: #d1d5db;
 }
 
+.anim{
+  animation: slideup 1s ;
+}
+
+@keyframes slideup {
+  from {
+    top: 50px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+.anim2{
+  animation: slideleft 1.5s ;
+}
+
+@keyframes slideleft {
+  from {
+    left: 50px;
+    opacity: 0;
+  }
+
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+tr{
+  position: relative;
+  animation: cascadeslide 1s;
+}
+
+@keyframes cascadeslide {
+  from {
+    left: 50px;
+    opacity: 0;
+  }
+
+  to {
+    left: 0px;
+    opacity: 1;
+  }
+}
+
+@for $i from 1 through $total {
+  tr:nth-child(#{$i}){
+    animation-delay: $i * 0.5s - 0.5s;
+  }
+}
+
 .last\:mr-0:last-child {
   margin-right: 0px;
 }
@@ -2131,11 +2159,6 @@ body{
 .hover\:bg-blue-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(35 56 118 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-slate-900:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
 }
 
 .hover\:text-white:hover {
@@ -2321,3 +2344,4 @@ body{
     overflow: visible;
   }
 }
+

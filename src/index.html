@@ -233,7 +233,7 @@
             </li>
             
           </ul>
-          <div class="relative flex flex-col min-w-0  h-fit break-words bg-slate-100 dark:bg-gray-800  w-full mb-6 rounded-2xl">
+          <div class=" relative flex flex-col min-w-0  h-fit break-words bg-slate-100 dark:bg-gray-800  w-full mb-6 rounded-2xl">
             <div class="px-5 py-5 flex-auto">
               <div class="tab-content tab-space">
                 <!--Dashboard Begins-->
@@ -251,7 +251,7 @@
                   </div>
                     
                   <!--Assets boxes 1st row-->
-                  <div class="flex">
+                  <div class="flex  animSlideup relative">
                     <div class="basis-1/4 my-5 report-box zoom-in hover:scale-105 ">
                       <div class="box p-5 mx-5 rounded-lg bg-white dark:bg-slate-900 shadow-sm">
                         <div class="flex">
@@ -299,7 +299,7 @@
                     </div>
                   </div>
                   <!--Assets boxes 2nd row-->
-                  <div class="flex">
+                  <div class="flex animSlideup relative">
                     <div class=" basis-1/4 my-5 report-box zoom-in hover:scale-105 "  >
                       <div class=" box p-5 mx-5 rounded-lg bg-white dark:bg-slate-900 shadow-sm">
                         <div class="flex justify-between">
@@ -385,7 +385,7 @@
                     <canvas class="rounded-xl" id="myChart" style="width:100%; height: 400px;"></canvas>
                   </div>
                   <!--Active Devices-->
-                  <div class="flex w-full bg-transparent pt-20">
+                  <div class="flex w-full bg-transparent pt-20 ">
                     <!--Left column Start-->
                     <div class="basis-8/12 ">
                       <p class="inline py-5 pl-5 text-lg font-medium text-slate-700 dark:text-slate-200">Active Devices</p>
@@ -417,12 +417,12 @@
                       </div>
 
                       <!--MAP-->
-                      <div class="rounded-sm" id="map" style="height: 600px; width: 100%;"></div>
+                      <div class=" rounded-sm" id="map" style="height: 600px; width: 100%;"></div>
                     </div>
                     <!--Left column end-->
 
                     <!--Right column Start-->
-                    <div class="basis-4/12">
+                    <div class="basis-4/12 animSlideup relative">
                       <div class="bg-white dark:bg-slate-900 box mx-3 mt-24 rounded-lg px-4 py-4 mb-3 flex items-center">
                         <div class="ml-4 mr-auto truncate">
                           <div class="font-medium"> Durbin DT001 </div>
@@ -514,7 +514,7 @@
                 <!--Assets Begins-->
                 <div class="tabList hidden" id="tab-assets"><tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
                   
-                  <div id="main-assets" class="block">
+                  <div id="main-assets" class="block ">
                     <div  class="flex ">
                       <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">Assets</p>
                       <div class=" sm:flex items-center ml-auto mt-0">
@@ -571,7 +571,7 @@
   
                     <!--Table Begins-->
                     <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-                      <table class="table border-separate border-spacing-y-3  sm:mt-2 w-full ">
+                      <table class="table border-separate border-spacing-y-3  sm:mt-2 w-full animSlideleft relative">
                         <thead><!--Table Headers-->
                           <tr class="text-base">
                             <th class="w-52 whitespace-no-wrap  font-medium">BRAND &amp; MODEL</th>
@@ -793,7 +793,7 @@
                     </div>
                   </div>
                   
-                  <div id="new-asset" class="hidden">
+                  <div id="new-asset" class="hidden animfadein">
                     <div class="flex ">
                       <button onclick="showDiv('main-assets','new-asset');" href="">
                         <svg  xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-6 cursor-pointer feather feather-arrow-left">
@@ -1140,7 +1140,7 @@
                   </div> 
 
                   <!--Asset History-->
-                  <div id="asset-history" class="hidden">
+                  <div id="asset-history" class="hidden ">
                     <div class="flex ">
                       <button onclick="showDiv('main-assets','asset-history');" href="">
                         <svg  xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-6 cursor-pointer feather feather-arrow-left">
@@ -1150,7 +1150,7 @@
                       <p class="inline py-5 pl-5 text-xl font-medium text-slate-700 dark:text-slate-200">History</p>
                     </div>
                     <div class="flex">
-                      <table class="table border-separate border-spacing-y-3  sm:mt-2 w-full ">
+                      <table class=" table border-separate border-spacing-y-3  sm:mt-2 w-full  ">
                         <thead>
                           <tr class="">
                             <th class="w-80 whitespace-no-wrap  px-5 py-1 font-medium">BRAND &amp; MODEL</th>
@@ -1160,7 +1160,7 @@
                             <th class="w-96 text-center whitespace-no-wrap px-5 py-1 font-medium">ACTION</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="hist_table relative">
                           <tr class="intro-x zoom-in text-sm rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-xl text-gray-600 dark:text-slate-100">
                             <td class=" py-3 text-center rounded-l-lg"><a href="" class="font-medium whitespace-no-wrap">HAULOTTE</a>
                               <div class="text-gray-600 text-xs whitespace-no-wrap"> Compact 10 AE </div>
@@ -1321,7 +1321,7 @@
                       </div>
                     </div>
                     <!--Upper tabs ends-->
-                    <div class="block align-middle justify-center text-center">
+                    <div class="block align-middle justify-center text-center animSlideup relative">
                       <img class="basis-1 h-40 my-10 mx-auto block" src="images/not_available.svg" alt="">
                       <p class="text-2xl text-slate-700 dark:text-slate-200 pb-5">No Data Available</p>
                       <p class="text-slate-400 pb-10">Woops!! Looks like there is no 💣 data available, <br> Try by adding one 🍾, if not check you internet connection and try again.</p>
@@ -1488,7 +1488,7 @@
                       </div>
                     </div>
                     <!--Upper tabs ends-->
-                    <div class="block align-middle justify-center text-center">
+                    <div class="block align-middle justify-center text-center animSlideup relative">
                       <img class="basis-1 h-40 my-10 mx-auto block" src="images/not_available.svg" alt="">
                       <p class="text-2xl text-slate-700 dark:text-slate-200 pb-5">No Data Available</p>
                       <p class="text-slate-400 pb-10">Woops!! Looks like there is no 💣 data available, <br> Try by adding one 🍾, if not check you internet connection and try again.</p>
@@ -1659,8 +1659,8 @@
                   <!--Upper Nav Ends-->
 
                   <!--Device Events Begins-->
-                  <div id="device-events" class="teleDiv flex h-auto">
-                    <div class="basis-3/12 rounded-lg bg-white dark:bg-slate-700 my-5 py-5 h-fit">
+                  <div id="device-events" class="teleDiv flex h-auto ">
+                    <div class="basis-3/12 rounded-lg bg-white dark:bg-slate-700 my-5 py-5 h-fit animSlideup relative">
                         <div onclick="changeActiveDevEventsTab(event, 'listOfAssets')" class="dev-event mx-3 pl-5 py-1 active rounded-md">List of Assets</div>
                         <div onclick="changeActiveDevEventsTab(event, 'incidentLogs')" class="dev-event mx-3 pl-5 py-1  rounded-md">Incident Logs</div>
                     </div>

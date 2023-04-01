@@ -101,3 +101,54 @@ body{
   .comToggle-checkbox:checked + .comToggle-label {
     background-color: #d1d5db;
   }
+.animSlideup{
+    animation: slideup 0.5s ;
+   
+}
+@keyframes slideup {
+    from {top: 50px; opacity: 0;}
+    to {top: 0px; opacity: 1;}
+  }
+  .animSlideleft{
+    animation: slideleft 1.5s ;
+  }
+  @keyframes slideleft {
+    from {left: 100px; opacity: 0; }
+    to {left: 0px; opacity: 1; visibility: visible;}
+  }
+tr{
+    position: relative;
+    animation: cascadeslide 0.25s ease-in-out backwards;
+
+}
+@keyframes cascadeslide {
+    from {left: 50px;visibility: hidden; display: none;}
+    to {left: 0px;visibility: visible; display: block;}
+  }
+
+  tr:nth-child(1){
+   
+    animation-delay: 0.3s;
+  }
+  tr:nth-child(2){
+   
+    animation-delay: 0.35s;
+  }
+  tr:nth-child(3){
+   
+    animation-delay: 0.4s;
+  }
+  tr:nth-child(4){
+   
+    animation-delay: 0.45s;
+  }
+  tr:nth-child(5){
+   
+    animation-delay: 0.5s;
+  }
+  tr:nth-child(6){
+   
+    animation-delay: 0.55s;
+  }
+
+
