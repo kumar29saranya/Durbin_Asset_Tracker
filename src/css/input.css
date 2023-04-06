@@ -92,7 +92,13 @@ body{
     background-color: #1e40af;
     color: white;
 }
-
+.assetDetailsActive{
+  text-decoration: underline;
+  text-decoration-color: #1e40af;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
+  
+}
 .comToggle-checkbox:checked {
     right: 0;
     border-color: #1e40af;
@@ -118,7 +124,7 @@ body{
   }
 tr{
     position: relative;
-    animation: cascadeslide 0.25s ease-in-out backwards;
+    animation: cascadeslide 0.1s ease-in-out backwards;
 
 }
 @keyframes cascadeslide {
@@ -149,6 +155,14 @@ tr{
   tr:nth-child(6){
    
     animation-delay: 0.55s;
+  }
+
+  .hovertabs:hover{
+    background-color: #1d4ed8;
+    
+  }
+  .dark .hovertabs:hover{
+    background-color: #020617;
   }
 
 

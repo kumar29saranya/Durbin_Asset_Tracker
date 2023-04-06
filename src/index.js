@@ -84,16 +84,16 @@ function changeActiveTab(event,tabID,navtab)
          {
           aElements[i].classList.remove("bg-gray-800");
          }
+          aElements[i].classList.add("hovertabs");
           
-        
+         
           tabDisp[i].classList.add("hidden");
           tabDisp[i].classList.remove("block");
       }
-      
+      element.classList.remove("hovertabs");
       element.classList.remove(tabnobgtxt);
       
-      element.classList.add(tabtxt);
-      
+      element.classList.add(tabtxt);      
       element.classList.add(tabbg);
       
 
@@ -285,3 +285,20 @@ function getActualHrs(txt){
     new TomSelect("#select-state",{
       maxItems: 3
     });
+    function changeDetails(event, tabID)
+    {
+          
+          element=event.target;
+          tabSelected=document.getElementsByClassName("asset-details-tab");
+          sectionDiv=document.getElementsByClassName("assetD-tabs");
+          
+          for(let i = 0 ; i < tabSelected.length; i++)
+        {
+          tabSelected[i].classList.remove("assetDetailsActive");
+          sectionDiv[i].classList.remove("block");
+          sectionDiv[i].classList.add("hidden");        
+        }
+        element.classList.add("assetDetailsActive");
+        document.getElementById(tabID).classList.remove("hidden");
+        document.getElementById(tabID).classList.add("block");
+      }  
