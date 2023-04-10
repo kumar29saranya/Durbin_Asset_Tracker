@@ -51,12 +51,14 @@ function changeActiveTab(event,tabID,navtab)
       var tabbg="bg-gray-800";
       var tabnobgtxt="text-slate-100";
       var tabtxt="text-white";
+      var bg="bg-slate-800";
     }
     else
     {
       var tabbg="bg-slate-100";
       var tabnobgtxt="text-white";
       var tabtxt="text-black";
+      var bg="bg-blue-800";
     }
 
     if(true)
@@ -67,12 +69,16 @@ function changeActiveTab(event,tabID,navtab)
       }
       ulElement = element.parentNode.parentNode;
       aElements = ulElement.querySelectorAll("li > a");
-      tabDisp=document.getElementsByClassName('tabList')
-      
+      tabDisp=document.getElementsByClassName('tabList');
+      cdf=document.getElementsByClassName("f-cornerdiv");
+      cdb=document.getElementsByClassName("b-cornerdiv");
       for(let i = 0 ; i < aElements.length; i++)
       {
+          cdf[i].classList.remove("block");
+          cdf[i].classList.add("hidden");
+          cdb[i].classList.remove("block");
+          cdb[i].classList.add("hidden");
           aElements[i].classList.remove(tabtxt);
-          
           aElements[i].classList.remove(tabbg);
           aElements[i].classList.add(tabnobgtxt);
           
@@ -95,8 +101,10 @@ function changeActiveTab(event,tabID,navtab)
       
       element.classList.add(tabtxt);      
       element.classList.add(tabbg);
-      
-
+      document.getElementById("f-"+navtab).classList.remove("hidden");
+      document.getElementById("b-"+navtab).classList.remove("hidden");
+      document.getElementById("f-"+navtab).classList.add("block");
+      document.getElementById("b-"+navtab).classList.add("block");
 
       document.getElementById(tabID).classList.remove("hidden");
       document.getElementById(tabID).classList.add("block");
