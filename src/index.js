@@ -175,7 +175,71 @@ function getActualHrs(txt){
       }
     }
   };
-  new Chart("myChart", config);
+  new Chart("myChart1", config);
+
+  const dataA = {
+    datasets: [{
+      label: 'Scatter Dataset',
+      data: [{x: 3,y: 2},  {x: 2,y: 4}, {x: 6,y: 0},{x: 1,y: 5}],backgroundColor: 'rgb(255, 99, 132)'
+    }],
+  };
+  const configa = {
+    type: 'scatter',
+    data: dataA,
+    options: {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom'
+        }
+      }
+    }
+  };
+  new Chart("myChart2", configa);
+  const dataG = {
+    datasets: [{
+      label: 'Scatter Dataset',
+      data: [{x: 3,y: 2},  {x: 2,y: 4}, {x: 6,y: 0},{x: 1,y: 5}],backgroundColor: 'rgb(255, 99, 132)'
+    }],
+  };
+  const configg = {
+    type: 'scatter',
+    data: dataG,
+    options: {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom'
+        }
+      }
+    }
+  };
+  new Chart("myChart3", configg);
+  const dataT= {
+    datasets: [{
+      label: 'Scatter Dataset',
+      data: [{x: 3,y: 2},  {x: 2,y: 4}, {x: 6,y: 0},{x: 1,y: 5}],backgroundColor: 'rgb(255, 99, 132)'
+    }],
+  };
+  const configt = {
+    type: 'scatter',
+    data: dataT,
+    options: {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom'
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Your Title'
+          }
+        }
+      }
+    }
+  };
+  new Chart("myChart4", configt);
 
 
   function initMap() {
@@ -266,6 +330,7 @@ function getActualHrs(txt){
           modal.style.display = "none";
       }
     }
+   
 
     function commDetails(){
       var checkBox = document.getElementById("showComm");
@@ -309,4 +374,99 @@ function getActualHrs(txt){
         element.classList.add("assetDetailsActive");
         document.getElementById(tabID).classList.remove("hidden");
         document.getElementById(tabID).classList.add("block");
-      }  
+      } 
+      function changeLeaseDetails(event, tabID)
+    {
+          
+          element=event.target;
+          tabSelected=document.getElementsByClassName("lease-details-tab");
+          sectionDiv=document.getElementsByClassName("leaseD-tabs");
+          
+          for(let i = 0 ; i < tabSelected.length; i++)
+        {
+          tabSelected[i].classList.remove("assetDetailsActive");
+          sectionDiv[i].classList.remove("block");
+          sectionDiv[i].classList.add("hidden");        
+        }
+        element.classList.add("assetDetailsActive");
+        document.getElementById(tabID).classList.remove("hidden");
+        document.getElementById(tabID).classList.add("block");
+      } 
+      function changeAssetTDetails(event, tabID)
+    {
+          
+          element=event.target;
+          tabSelected=document.getElementsByClassName("asset-telematics-tab");
+          sectionDiv=document.getElementsByClassName("assetT-tabs");
+          
+          for(let i = 0 ; i < tabSelected.length; i++)
+        {
+          tabSelected[i].classList.remove("assetDetailsActive");
+          sectionDiv[i].classList.remove("block");
+          sectionDiv[i].classList.add("hidden");        
+        }
+        element.classList.add("assetDetailsActive");
+        document.getElementById(tabID).classList.remove("hidden");
+        document.getElementById(tabID).classList.add("block");
+      }
+      function changetoTab(navtab)
+      {
+        darkcheck=document.getElementById("checkmode")
+    if(darkcheck.checked)
+    {
+      var tabbg="bg-gray-800";
+      var tabnobgtxt="text-slate-100";
+      var tabtxt="text-white";
+      var bg="bg-slate-800";
+    }
+    else
+    {
+      var tabbg="bg-slate-100";
+      var tabnobgtxt="text-white";
+      var tabtxt="text-black";
+      var bg="bg-blue-800";
+    }
+
+      element=document.getElementById(navtab)
+      aElements = document.getElementsByClassName("navbar-tab ");
+    
+      cdf=document.getElementsByClassName("f-cornerdiv");
+      cdb=document.getElementsByClassName("b-cornerdiv");
+      for(let i = 0 ; i < aElements.length; i++)
+      {
+          cdf[i].classList.remove("block");
+          cdf[i].classList.add("hidden");
+          cdb[i].classList.remove("block");
+          cdb[i].classList.add("hidden");
+          aElements[i].classList.remove(tabtxt);
+          aElements[i].classList.remove(tabbg);
+          aElements[i].classList.add(tabnobgtxt);
+          
+         if(aElements[i].classList.contains("bg-slate-100"))
+         {
+          aElements[i].classList.remove("bg-slate-100");
+         }
+         if(aElements[i].classList.contains("bg-gray-800"))
+         {
+          aElements[i].classList.remove("bg-gray-800");
+         }
+          aElements[i].classList.add("hovertabs");
+          
+         
+      }
+      element.classList.remove("hovertabs");
+      element.classList.remove(tabnobgtxt);
+      
+      element.classList.add(tabtxt);      
+      element.classList.add(tabbg);
+      document.getElementById("f-"+navtab).classList.remove("hidden");
+      document.getElementById("b-"+navtab).classList.remove("hidden");
+      document.getElementById("f-"+navtab).classList.add("block");
+      document.getElementById("b-"+navtab).classList.add("block");
+
+    
+    }
+    
+    
+
+      
