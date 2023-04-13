@@ -72,12 +72,16 @@ function changeActiveTab(event,tabID,navtab)
       tabDisp=document.getElementsByClassName('tabList');
       cdf=document.getElementsByClassName("f-cornerdiv");
       cdb=document.getElementsByClassName("b-cornerdiv");
+      var x = window.matchMedia("(max-width: 1279px)");
+      //alert(x.matches);
       for(let i = 0 ; i < aElements.length; i++)
       {
-          cdf[i].classList.remove("block");
+          
           cdf[i].classList.add("hidden");
-          cdb[i].classList.remove("block");
           cdb[i].classList.add("hidden");
+          cdb[i].classList.remove("block");
+          cdf[i].classList.remove("block");
+         
           aElements[i].classList.remove(tabtxt);
           aElements[i].classList.remove(tabbg);
           aElements[i].classList.add(tabnobgtxt);
@@ -105,6 +109,15 @@ function changeActiveTab(event,tabID,navtab)
       document.getElementById("b-"+navtab).classList.remove("hidden");
       document.getElementById("f-"+navtab).classList.add("block");
       document.getElementById("b-"+navtab).classList.add("block");
+      if (!x.matches){
+        for(let i = 0 ; i < aElements.length; i++)
+      {
+          
+          cdf[i].classList.add("hidden");
+          cdb[i].classList.add("hidden");
+      }
+    }
+      
 
       document.getElementById(tabID).classList.remove("hidden");
       document.getElementById(tabID).classList.add("block");
@@ -114,6 +127,31 @@ function changeActiveTab(event,tabID,navtab)
     
     
 }
+
+function changeActiveTabSmall(tabID,text)
+{
+    
+      element=document.getElementById(text);
+      aElements = document.getElementsByClassName("tabtxt");
+      tabDisp=document.getElementsByClassName('tabList');
+      for(let i = 0 ; i < aElements.length; i++)
+      {
+          aElements[i].classList.remove("text-white");
+          aElements[i].classList.add("text-slate-300");
+         
+          tabDisp[i].classList.remove("block");
+          tabDisp[i].classList.add("hidden"); 
+      }
+      
+      element.classList.remove("text-slate-300");
+      element.classList.add("text-white");      
+      document.getElementById(tabID).classList.remove("hidden");
+      document.getElementById(tabID).classList.add("block");
+      
+      
+    }
+    
+    
 
 function change_text(text)
 {
@@ -466,7 +504,16 @@ function getActualHrs(txt){
 
     
     }
-    
+    function hidemenu(id)
+    {
+      b=document.getElementById(id);
+      if(b.classList.contains("block"))
+        {b.classList.remove("block");
+        b.classList.add("hidden");}
+      else if(b.classList.contains("hidden"))
+        {b.classList.remove("hidden");
+        b.classList.add("block");}
+    }
     
 
       
