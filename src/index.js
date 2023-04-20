@@ -72,15 +72,14 @@ function changeActiveTab(event,tabID,navtab)
       tabDisp=document.getElementsByClassName('tabList');
       cdf=document.getElementsByClassName("f-cornerdiv");
       cdb=document.getElementsByClassName("b-cornerdiv");
-      var x = window.matchMedia("(max-width: 1279px)");
-      //alert(x.matches);
       for(let i = 0 ; i < aElements.length; i++)
       {
           
+        cdb[i].classList.remove("block");
+        cdf[i].classList.remove("block");
           cdf[i].classList.add("hidden");
           cdb[i].classList.add("hidden");
-          cdb[i].classList.remove("block");
-          cdf[i].classList.remove("block");
+          
          
           aElements[i].classList.remove(tabtxt);
           aElements[i].classList.remove(tabbg);
@@ -109,13 +108,7 @@ function changeActiveTab(event,tabID,navtab)
       document.getElementById("b-"+navtab).classList.remove("hidden");
       document.getElementById("f-"+navtab).classList.add("block");
       document.getElementById("b-"+navtab).classList.add("block");
-      if (!x.matches){
-        for(let i = 0 ; i < aElements.length; i++)
-      {
-          
-          cdf[i].classList.add("hidden");
-          cdb[i].classList.add("hidden");
-      }
+  
     }
       
 
@@ -126,7 +119,7 @@ function changeActiveTab(event,tabID,navtab)
     }
     
     
-}
+
 
 function changeActiveTabSmall(tabID,text)
 {
@@ -157,11 +150,38 @@ function change_text(text)
 {
     document.getElementById("head-tab").innerHTML=text;
 }
+var notifbox = document.getElementById('notif-content');
+var notifbtn = document.getElementById('notif-btn');
+if(document.getElementById('notif-content').style.display=="block")
+{
+    document.addEventListener('click', function(event) {
+        var isClickInside = notifbox.contains(event.target);
+        var isbtn = notbtn.contains(event.target);
+        if (event.target.matches('.notification-content') || event.target.matches('#notif-btn')) {
+           
+            document.getElementById('notif-content').style.display="block";
+            
+        }
+        else 
+        {
+          document.getElementById('notif-content').style.display="none";
+        } 
+          
+        
+    });
+  }
+ function toggleColumn(name){
   
+  document.getElementById(name).classList.toggle("hidden");
+
+ }
 function display_column(name)
 {
-    document.getElementById(name).style.display="block";
+  document.getElementById(name).style.display="block";
 }
+
+
+
 function hide_column(name)
 {
     document.getElementById(name).style.display="none";
