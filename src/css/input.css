@@ -1,28 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* width */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
+
 ::-webkit-scrollbar-track {
   background-color: #00000000;
   border-radius:0px 10px 10px 0px;
   
 }
-/* Handle */
+
 ::-webkit-scrollbar-thumb {
   background: #d1d5db; 
   border-radius: 10px;
   border-color: #555;
 }
 
-
+.zoom-in {
+    
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  cursor: pointer;
+}
 body{
     font-family:  "Poppins", sans-serif;
 }
+
+/*NAVBAR BORDER*/
 .navbar-border{
   --border-opacity:1;
   border-color:rgba(46, 81, 187, var(--border-opacity));
@@ -31,12 +47,16 @@ body{
 .dark .navbar-border{
   border-color: rgba(49, 58, 85, var(--border-opacity))
 }
+
+/*DARK MODE BUTTON*/
 #checkmode:checked + label .switch-ball{
     background-color: white;
     transform: translateX(18px);
     transition: transform 0.3s linear;
   }
-  .report-box:before {
+
+ /*Asset Boxes BG*/
+.report-box:before {
     content: "";
     width: 85%;
     background: #F9FAFC;
@@ -55,36 +75,9 @@ body{
     background: #0b00213f;
 }
 
-.zoom-in {
-    
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-    transition-duration: 300ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --transform-translate-x: 0;
-    --transform-translate-y: 0;
-    --transform-rotate: 0;
-    --transform-skew-x: 0;
-    --transform-skew-y: 0;
-    --transform-scale-x: 1;
-    --transform-scale-y: 1;
-    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
-    cursor: pointer;
-}
-.chartjs-size-monitor, .chartjs-size-monitor-expand, .chartjs-size-monitor-shrink {
-    position: absolute;
-    direction: ltr;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    pointer-events: none;
-    visibility: hidden;
-    z-index: -1;
-}
-.chartjs-render-monitor {
-    animation: chartjs-render-animation 0.001s;
-}
+
+/*Dasboard Date Input Actual vs Usage Hours*/
+
 .mx-input {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -114,10 +107,13 @@ body{
     vertical-align: middle;
 }
 
+/*Telematics Active Tab*/
 .active{
     background-color: #1e40af;
     color: white;
 }
+
+/*AssetDetails Active Tab*/
 .assetDetailsActive{
   text-decoration: underline;
   text-decoration-color: #1e40af;
@@ -125,6 +121,8 @@ body{
   text-decoration-thickness: 2px;
   
 }
+
+/*Commericial Details---New Asset*/
 .comToggle-checkbox:checked {
     right: 0;
     border-color: #1e40af;
@@ -133,6 +131,8 @@ body{
   .comToggle-checkbox:checked + .comToggle-label {
     background-color: #d1d5db;
   }
+
+/*Animations*/
 .animSlideup{
     animation: slideup 0.5s ;
    
@@ -148,6 +148,7 @@ body{
     from {left: 100px; opacity: 0; }
     to {left: 0px; opacity: 1; visibility: visible;}
   }
+                       /*Animations for asset/operator/history table rows*/
 tr{
     position: relative;
     animation: cascadeslide 0.1s ease-in-out backwards;
@@ -182,7 +183,8 @@ tr{
    
     animation-delay: 0.55s;
   }
-
+  
+/*Hover Section Tabs*/
   .hovertabs:hover{
     background-color: #1d4ed8;
     

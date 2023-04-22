@@ -1117,6 +1117,10 @@ input[type="range"]::-ms-fill-lower {
   margin-top: 2rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1180,6 +1184,10 @@ input[type="range"]::-ms-fill-lower {
 
 .h-full {
   height: 100%;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .max-h-96 {
@@ -1339,6 +1347,10 @@ input[type="range"]::-ms-fill-lower {
   flex-basis: 100%;
 }
 
+.basis-0 {
+  flex-basis: 0px;
+}
+
 .border-separate {
   border-collapse: separate;
 }
@@ -1440,10 +1452,6 @@ input[type="range"]::-ms-fill-lower {
 
 .whitespace-nowrap {
   white-space: nowrap;
-}
-
-.break-words {
-  overflow-wrap: break-word;
 }
 
 .rounded {
@@ -1702,6 +1710,11 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1850,10 +1863,6 @@ input[type="range"]::-ms-fill-lower {
 
 .pr-3 {
   padding-right: 0.75rem;
-}
-
-.pr-5 {
-  padding-right: 1.25rem;
 }
 
 .pt-12 {
@@ -2135,20 +2144,14 @@ input[type="range"]::-ms-fill-lower {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* width */
-
 ::-webkit-scrollbar {
   width: 10px;
 }
-
-/* Track */
 
 ::-webkit-scrollbar-track {
   background-color: #00000000;
   border-radius:0px 10px 10px 0px;
 }
-
-/* Handle */
 
 ::-webkit-scrollbar-thumb {
   background: #d1d5db;
@@ -2156,9 +2159,26 @@ input[type="range"]::-ms-fill-lower {
   border-color: #555;
 }
 
+.zoom-in {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  cursor: pointer;
+}
+
 body{
   font-family:  "Poppins", sans-serif;
 }
+
+/*NAVBAR BORDER*/
 
 .navbar-border{
   --border-opacity:1;
@@ -2169,11 +2189,15 @@ body{
   border-color: rgba(49, 58, 85, var(--border-opacity))
 }
 
+/*DARK MODE BUTTON*/
+
 #checkmode:checked + label .switch-ball{
   background-color: white;
   transform: translateX(18px);
   transition: transform 0.3s linear;
 }
+
+/*Asset Boxes BG*/
 
 .report-box:before {
   content: "";
@@ -2195,37 +2219,7 @@ body{
   background: #0b00213f;
 }
 
-.zoom-in {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --transform-translate-x: 0;
-  --transform-translate-y: 0;
-  --transform-rotate: 0;
-  --transform-skew-x: 0;
-  --transform-skew-y: 0;
-  --transform-scale-x: 1;
-  --transform-scale-y: 1;
-  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
-  cursor: pointer;
-}
-
-.chartjs-size-monitor, .chartjs-size-monitor-expand, .chartjs-size-monitor-shrink {
-  position: absolute;
-  direction: ltr;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  pointer-events: none;
-  visibility: hidden;
-  z-index: -1;
-}
-
-.chartjs-render-monitor {
-  animation: chartjs-render-animation 0.001s;
-}
+/*Dasboard Date Input Actual vs Usage Hours*/
 
 .mx-input {
   display: inline-block;
@@ -2254,10 +2248,14 @@ body{
   vertical-align: middle;
 }
 
+/*Telematics Active Tab*/
+
 .active{
   background-color: #1e40af;
   color: white;
 }
+
+/*AssetDetails Active Tab*/
 
 .assetDetailsActive{
   text-decoration: underline;
@@ -2265,6 +2263,8 @@ body{
   text-underline-offset: 8px;
   text-decoration-thickness: 2px;
 }
+
+/*Commericial Details---New Asset*/
 
 .comToggle-checkbox:checked {
   right: 0;
@@ -2274,6 +2274,8 @@ body{
 .comToggle-checkbox:checked + .comToggle-label {
   background-color: #d1d5db;
 }
+
+/*Animations*/
 
 .animSlideup{
   animation: slideup 0.5s ;
@@ -2307,6 +2309,8 @@ body{
     visibility: visible;
   }
 }
+
+/*Animations for asset/operator/history table rows*/
 
 tr{
   position: relative;
@@ -2350,6 +2354,8 @@ tr:nth-child(5){
 tr:nth-child(6){
   animation-delay: 0.55s;
 }
+
+/*Hover Section Tabs*/
 
 .hovertabs:hover{
   background-color: #1d4ed8;
@@ -2615,12 +2621,41 @@ tr:nth-child(6){
     display: none;
   }
 
+  .md\:basis-1\/2 {
+    flex-basis: 50%;
+  }
+
+  .md\:basis-1\/4 {
+    flex-basis: 25%;
+  }
+
   .md\:basis-3\/12 {
     flex-basis: 25%;
   }
 
+  .md\:basis-4\/12 {
+    flex-basis: 33.333333%;
+  }
+
   .md\:basis-6\/12 {
     flex-basis: 50%;
+  }
+
+  .md\:basis-8\/12 {
+    flex-basis: 66.666667%;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
+  }
+
+  .md\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .md\:pb-5 {
@@ -2629,6 +2664,10 @@ tr:nth-child(6){
 
   .md\:pl-6 {
     padding-left: 1.5rem;
+  }
+
+  .md\:pr-5 {
+    padding-right: 1.25rem;
   }
 
   .md\:pt-2 {
